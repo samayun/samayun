@@ -30,6 +30,8 @@
 
 [<img align="left" alt="Node.js" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png" />][nodeplaylist]
 
+[<img align="left" alt="Node.js" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/laravel/laravel.png" />][laravelplaylist]
+
 [<img align="left" alt="MySQL" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mysql/mysql.png" />][webdevplaylist]
 
 [<img align="left" alt="GitHub" width="40px" src="https://raw.githubusercontent.com/github/explore/78df643247d429f6cc873026c0622819ad797942/topics/github/github.png" />][webdevplaylist]
@@ -56,6 +58,7 @@
 [vueplaylist]: https://github.com/samayun?tab=repositories&q=vue
 [firebaseplaylist]: https://github.com/samayun?tab=repositories&q=firebase
 [nodeplaylist]: https://github.com/samayun?tab=repositories&q=node
+[laravelplaylist]: https://github.com/samayun?tab=repositories&q=laravel
 
 &nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=samayun&show_icons=true&theme=mona=kali&title_color=3cb480&locale=en" alt="Samayun Chowdhury" width="550px" />
 
