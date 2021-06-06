@@ -45,8 +45,8 @@
 <br />
 
 [programming]: https://web.programming-hero.com
-[website]: https:/samayun-mc.web.app
-[twitter]: https:/twitter.com/samayunmc
+[website]: https://samayun-mc.web.app
+[twitter]: https://twitter.com/samayunmc
 [linkedin]: https://linkedin.com/in/samayun
 [webdevplaylist]: https://github.com/samayun?tab=repositories
 [jsplaylist]: https://github.com/samayun?tab=repositories&q=js
