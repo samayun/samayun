@@ -1,26 +1,25 @@
-### Hi there, I'm [Samayun Chowdhury][website] 👋
+### Hi there, I'm [Samayun Chowdhury][website] 👋 
+
 
 ## I'm a 😍 JavaScript Lover 😍
 
 - 🔭 I’m currently learning at [Programming Hero][programming]!
 - 🌱 I’m currently working with Microservice 😚
 - 🥅 2021 Goals: TypeScript, Next.js, GraphQL
-- ⚡ Fun fact: I love to Explore new technolgies
+- ⚡ Fun fact: I love to explore new technolgies
 
-### Connect with me:
+### Connect with me: ![Profile Views ](https://komarev.com/ghpvc/?username=samayun&label=Profile%20Views&color=0e75b6)
 
-[![LinkedIn Connect](https://img.shields.io/badge/%20-Connect-black?color=14171A&labelColor=212121&logo=linkedin&logoColor=ffffff)](https://bd.linkedin.com/in/samayun)
-[![Facebook Follow](https://img.shields.io/badge/%20-black?color=14171A&labelColor=1976d2&logo=facebook&logoColor=ffffff&label=Add)](https://facebook.com/samayunmc)
-[![Medium Follow](https://img.shields.io/badge/%20-black?color=14171A&labelColor=1976d2&logo=medium&logoColor=ffffff&label=Blog)](https://medium.com/@samayunmc)
-[![Twiiter](https://img.shields.io/badge/%20-Questions-black?color=14171A&labelColor=fff&logo=stackoverflow&logoColor=0c0d0e26)](https://stackoverflow.com/users/12932846/samayun-miah-chowdhury)
-![Profile Views ](https://komarev.com/ghpvc/?username=samayun&label=Profile%20views&color=0e75b6&style=flat)
+[![LinkedIn Connect](https://img.shields.io/badge/Connect_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://bd.linkedin.com/in/samayun)
+[![Facebook Follow](https://img.shields.io/badge/+Add_Friend-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/samayunmc)
+[![Medium Follow](https://img.shields.io/badge/Blogs-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@samayunmc)
+[![Stack Over Flow](https://img.shields.io/badge/Questions-FE7A16?style=for-the-badge&logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/12932846/samayun-miah-chowdhury)
+[![Hackerrank Profile](https://img.shields.io/badge/-Hackerrank-2EC866?style=for-the-badge&logo=HackerRank&logoColor=white)](https://hackerrank.com/samayunmc)
 <br />
-
 ### Languages and Tools:
 
 [<img align="left" alt="Visual Studio Code" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/visual-studio-code/visual-studio-code.png" />][webdevplaylist]
-[<img align="left" alt="HTML5" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" />][webdevplaylist]
-[<img align="left" alt="CSS3" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png" />][cssplaylist]
+
 [<img align="left" alt="Sass" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/sass/sass.png" />][sassplaylist]
 [<img align="left" alt="JavaScript" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" />][jsplaylist]
 [<img align="left" alt="React" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" />][reactplaylist]
@@ -34,11 +33,10 @@
 
 [<img align="left" alt="MySQL" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mysql/mysql.png" />][webdevplaylist]
 
-[<img align="left" alt="GitHub" width="40px" src="https://raw.githubusercontent.com/github/explore/78df643247d429f6cc873026c0622819ad797942/topics/github/github.png" />][webdevplaylist]
 
 [<img align="left" alt="Git" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png" />][webdevplaylist]
 
-[<img align="left" alt="HTML5" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/terminal/terminal.png" />][webdevplaylist]
+
 
 <br />
 
