@@ -1,9 +1,9 @@
 ### Hi there, I'm [Samayun Chowdhury][website] 👋
 
-## I'm a 😍😍 JavaScript Lover 😍😍!
+## I'm a 😍 JavaScript Lover 😍
 
 - 🔭 I’m currently learning at [Programming Hero][programming]!
-- 🌱 I’m currently working with Microservice 🤣
+- 🌱 I’m currently working with Microservice 😚
 - 🥅 2021 Goals: TypeScript, Next.js, GraphQL
 - ⚡ Fun fact: I love to Explore new technolgies
 
@@ -13,7 +13,7 @@
 [![Facebook Follow](https://img.shields.io/badge/%20-Follow-black?color=14171A&labelColor=1976d2&logo=facebook&logoColor=ffffff)](https://facebook.com/samayunmc)
 [![Medium Follow](https://img.shields.io/badge/%20-Follow-black?color=14171A&labelColor=1976d2&logo=medium&logoColor=ffffff)](https://medium.com/@samayunmc)
 [![Twiiter](https://img.shields.io/badge/%20-Questions-black?color=14171A&labelColor=fff&logo=stackoverflow&logoColor=0c0d0e26)](https://stackoverflow.com/users/12932846/samayun-miah-chowdhury)
-
+![Profile Views ](https://komarev.com/ghpvc/?username=samayun&label=Profile%20views&color=0e75b6&style=flat)
 <br />
 
 ### Languages and Tools:
