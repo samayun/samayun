@@ -1,6 +1,6 @@
 ### Hi there, I'm [Samayun Chowdhury][website] 👋 
 
-![Samayun Chowdhury](https://media-exp1.licdn.com/dms/image/C5616AQHQz0FrV4bLEQ/profile-displaybackgroundimage-shrink_350_1400/0/1623739764608?e=1635984000&v=beta&t=l0lyl6NmBRwIvF1pm_4C9lmYMq-7J1obJ812lY3XAtk)
+![Samayun Chowdhury](banner.png)
 
 ## I'm a 😍 JavaScript Fanboy 😍
 
