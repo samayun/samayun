@@ -1,7 +1,7 @@
 ### Hi there, I'm [Samayun Chowdhury][website] 👋 
 <!-- 
 ![]() -->
-<img alt="Samayun Chowdhury" src="banner.png" height="350px" width="100%"/>
+<img alt="Samayun Chowdhury" src="https://media0.giphy.com/media/13HgwGsXF0aiGY/giphy.gif?cid=ecf05e47b1h78pscg11wrf8gy23urwqzcgqmbdnp9hk4zaak&rid=giphy.gif&ct=g"/>
 
 ## I'm a 😍 JavaScript Fanboy 😍
 
