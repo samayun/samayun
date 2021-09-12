@@ -1,16 +1,17 @@
-### Hi there, I'm [Samayun Chowdhury][website] 👋 
-<!-- 
-![]() -->
-<img alt="Samayun Chowdhury" src="https://media0.giphy.com/media/13HgwGsXF0aiGY/giphy.gif?cid=ecf05e47b1h78pscg11wrf8gy23urwqzcgqmbdnp9hk4zaak&rid=giphy.gif&ct=g"/>
+### Hi there, I'm [Samayun Chowdhury][website] 👋
 
-##  <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50"> I'm a 😍 JavaScript Fanboy 😍
+![Banner](banner.png)
+
+<!-- <img alt="Samayun Chowdhury" src="https://media0.giphy.com/media/13HgwGsXF0aiGY/giphy.gif?cid=ecf05e47b1h78pscg11wrf8gy23urwqzcgqmbdnp9hk4zaak&rid=giphy.gif&ct=g"/> -->
+
+## <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50"> I'm a 😍 JavaScript Fanboy 😍
 
 - 🔭 I’m currently working at [Sayburgh Solutions][office] as a backend developer
-- 🌱 I’m currently learning **TypeScript 😚 
+- 🌱 I’m currently learning \*\*TypeScript 😚
 - 🥅 2021 Goals: **TypeScript, Nest.js, GraphQL, Microservice Architecture **
 - ⚡ Fun fact: I love to explore latest technolgies & reading books
 
-###  <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50"> Connect with me: ![Profile Views ](https://komarev.com/ghpvc/?username=samayun&label=Profile%20Views&color=0e75b6)
+### <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50"> Connect with me: ![Profile Views ](https://komarev.com/ghpvc/?username=samayun&label=Profile%20Views&color=0e75b6)
 
 [![LinkedIn Connect](https://img.shields.io/badge/Connect_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://bd.linkedin.com/in/samayun)
 [![Facebook Follow](https://img.shields.io/badge/+Add_Friend-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/samayunmc)
@@ -20,11 +21,11 @@
 <br />
 
 &nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=samayun&show_icons=true&theme=mona=kali&title_color=3cb480&locale=en" alt="Samayun Chowdhury" width="550px" />
-<!-- 
+
+<!--
 <img src="https://github-readme-stats.vercel.app/api/top-langs?username=samayun&show_icons=true&theme=vue&title_color=white&locale=en&layout=compact" alt="Samayun Chowdhury" width="500px" style="margin-left: 20px;" /> -->
 
-
-###  <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50"> Languages and Tools:
+### <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50"> Languages and Tools:
 
 [<img align="left" alt="Visual Studio Code" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/visual-studio-code/visual-studio-code.png" />][webdevplaylist]
 
