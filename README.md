@@ -1,6 +1,6 @@
 ### Hi there, I'm [Samayun Chowdhury][website] 👋
 
-![Banner](banner.png)
+![Banner](https://imgur.com/xpDBdFG.png)
 
 <!-- <img alt="Samayun Chowdhury" src="https://media0.giphy.com/media/13HgwGsXF0aiGY/giphy.gif?cid=ecf05e47b1h78pscg11wrf8gy23urwqzcgqmbdnp9hk4zaak&rid=giphy.gif&ct=g"/> -->
 
