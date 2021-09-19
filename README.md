@@ -2,7 +2,7 @@
 <!-- with website -->
 <!-- ![Banner](https://imgur.com/xpDBdFG.png) -->
 <!-- // without website link -->
-![Banner](https://i.imgur.com/awewwgC.png)
+![Banner](https://i.imgur.com/wZYiSxn.png)
 <!-- <img alt="Samayun Chowdhury" src="https://media0.giphy.com/media/13HgwGsXF0aiGY/giphy.gif?cid=ecf05e47b1h78pscg11wrf8gy23urwqzcgqmbdnp9hk4zaak&rid=giphy.gif&ct=g"/> -->
 
 ## <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50"> I'm a 😍 JavaScript Fanboy 😍
