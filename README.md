@@ -1,8 +1,8 @@
 ### Hi there, I'm [Samayun Chowdhury][website] 👋
 <!-- with website -->
-<!-- ![Banner](https://imgur.com/xpDBdFG.png) -->
+<!-- ![Banner](https://i.imgur.com/wZYiSxn.png) -->
 <!-- // without website link -->
-![Banner](https://i.imgur.com/wZYiSxn.png)
+![Banner](https://user-images.githubusercontent.com/31636535/133980556-5e36795a-0f7f-4c0f-a076-013c0f07b233.gif)
 <!-- <img alt="Samayun Chowdhury" src="https://media0.giphy.com/media/13HgwGsXF0aiGY/giphy.gif?cid=ecf05e47b1h78pscg11wrf8gy23urwqzcgqmbdnp9hk4zaak&rid=giphy.gif&ct=g"/> -->
 
 ## <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50"> I'm a 😍 JavaScript Fanboy 😍
@@ -17,7 +17,8 @@
 [![LinkedIn Connect](https://img.shields.io/badge/Connect_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://bd.linkedin.com/in/samayun)
 [![Facebook Follow](https://img.shields.io/badge/+Add_Friend-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/samayunmc)
 [![Medium Follow](https://img.shields.io/badge/Blogs-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@samayunmc)
-[![Stack Over Flow](https://img.shields.io/badge/Questions-FE7A16?style=for-the-badge&logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/12932846/samayun-miah-chowdhury)
+[![Stack Over Flow](https://img.shields.io/badge/Questions-FE7A16?style=for-the-badge&logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/12932846/samayun-miah-chowdhury)![fav-banner-2(1)](https://user-images.githubusercontent.com/31636535/133979832-2f501492-5bd1-46f7-b328-14a5ad9ccd29.gif)
+
 [![Hackerrank Profile](https://img.shields.io/badge/-Hackerrank-2EC866?style=for-the-badge&logo=HackerRank&logoColor=white)](https://hackerrank.com/samayunmc)
 <br />
 
@@ -68,3 +69,4 @@
 [laravelplaylist]: https://github.com/samayun?tab=repositories&q=graphql
 [mysql]: https://github.com/samayun?tab=repositories&q=mysql
 [typescript]: https://github.com/samayun?tab=repositories&q=typescript
+
