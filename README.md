@@ -65,7 +65,7 @@
 [vueplaylist]: https://github.com/samayun?tab=repositories&q=vue
 [firebaseplaylist]: https://github.com/samayun?tab=repositories&q=firebase
 [nodeplaylist]: https://github.com/samayun?tab=repositories&q=node
-[graphqlplaylist]: https://github.com/samayun?tab=repositories&q=laravel
-[laravelplaylist]: https://github.com/samayun?tab=repositories&q=graphql
+[laravelplaylist]: https://github.com/samayun?tab=repositories&q=laravel
+[graphqlplaylist]: https://github.com/samayun?tab=repositories&q=graphql
 [mysql]: https://github.com/samayun?tab=repositories&q=mysql
 [typescript]: https://github.com/samayun?tab=repositories&q=typescript
