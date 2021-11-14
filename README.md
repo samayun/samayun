@@ -1,3 +1,7 @@
+
+
+<!-- Blue => ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=samayun&hide_border=true&ring=2196F3&fire=2196F3&currStreakLabel=2196F3) -->
+
 ### Hi there, I'm [Samayun Chowdhury][website] 👋
 <!-- with website -->
 <!-- ![Banner](https://i.imgur.com/wZYiSxn.png) -->
@@ -12,9 +16,13 @@
 - 🥅 2021 Goals: <b>TypeScript</b>, <b> Nest.js</b>, <b>GraphQL</b>, <b>Microservice Architecture </b>
 - ⚡ Fun fact: I love to explore latest technolgies & reading books
 
-&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=samayun&show_icons=true&theme=mona=kali&title_color=3cb480&locale=en" alt="Samayun Chowdhury" width="550px" />
 
-### <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50"> Connect with me: ![Profile Views ](https://komarev.com/ghpvc/?username=samayun&label=Profile%20Views&color=0e75b6)
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=samayun&hide_border=true&ring=F25822&fire=E25822&currStreakLabel=E25822)
+
+&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=samayun&hide_border=true&show_icons=true&theme=mona=kali&title_color=3cb480&locale=en" alt="Samayun Chowdhury" width="550px" />
+
+
+### <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50"> Connect with me: ![Profile Views ](https://komarev.com/ghpvc/?username=samayun&label=Profile%20Views&color=3cb480)
 
 [![LinkedIn Connect](https://img.shields.io/badge/Connect_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://bd.linkedin.com/in/samayun)
 [![Facebook Follow](https://img.shields.io/badge/+Add_Friend-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/samayunchy)
@@ -26,6 +34,7 @@
 
 <!--
 <img src="https://github-readme-stats.vercel.app/api/top-langs?username=samayun&show_icons=true&theme=vue&title_color=white&locale=en&layout=compact" alt="Samayun Chowdhury" width="500px" style="margin-left: 20px;" /> -->
+
 
 ### <img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50"> Languages and Tools:
 
