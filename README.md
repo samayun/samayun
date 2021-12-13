@@ -8,21 +8,22 @@
 
 ![Banner](https://user-images.githubusercontent.com/31636535/133980556-5e36795a-0f7f-4c0f-a076-013c0f07b233.gif)
 
-<div style="display:flex;">
-<div style="width:60%">
+<table border="0">
+ <tr >
+  <td> 
+    
+ ### I'm a 😍 JavaScript Fanboy 😍
 
-### I'm a 😍 JavaScript Fanboy 😍
-
-- 🔭 I’m currently working at [Sayburgh Solutions][office] as a backend developer
-- 🌱 I’m currently learning <b>TypeScript 😚 </b>
-- 🥅 2021 Goals: <b>TypeScript</b>, <b> Nest.js</b>, <b>GraphQL</b>, <b>Microservice Architecture </b>
-- ⚡ Fun fact: I love to explore latest technolgies & reading books
-
-</div>
-<div style="width:40%">
-  <img src="https://c.tenor.com/cH_yvjYMGU0AAAAi/hackerman-programming.gif" width="250">
-</div>
-</div>
+  - 🔭 I’m currently working at [Sayburgh Solutions][office] as a backend developer
+  - 🌱 I’m currently learning <b>TypeScript 😚 </b>
+  - 🥅 2021 Goals: <b>TypeScript</b>, <b> Nest.js</b>, <b>GraphQL</b>, <b>Microservice Architecture </b>
+  - ⚡ Fun fact: I love to explore latest technolgies & reading books
+****
+   
+   </td>
+    <td> <img src="https://c.tenor.com/cH_yvjYMGU0AAAAi/hackerman-programming.gif" width="250"></td>
+ </tr>
+</table>
 
 ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=samayun&hide_border=true&ring=F25822&fire=E25822&currStreakLabel=E25822)
 
