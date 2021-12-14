@@ -15,7 +15,7 @@
 - 🥅 2021 Goals: <b>TypeScript</b>, <b> Nest.js</b>, <b>GraphQL</b>, <b>Microservice Architecture </b>
 - ⚡ Fun fact: I love to explore latest technolgies & reading books
    </td>
-    <td border="0"> <img src="https://c.tenor.com/cH_yvjYMGU0AAAAi/hackerman-programming.gif" width="250"></td>
+    <td border="0"> <img src="https://c.tenor.com/_DOBjnGspYAAAAAM/code-coding.gif" /></td>
  </tr>
 </table>
 
