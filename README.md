@@ -2,26 +2,20 @@
 
 ### Hi there, I'm [Samayun Chowdhury][website] 👋
 
-<!-- with website -->
-<!-- ![Banner](https://i.imgur.com/wZYiSxn.png) -->
-<!-- // without website link -->
-
 ![Banner](https://user-images.githubusercontent.com/31636535/133980556-5e36795a-0f7f-4c0f-a076-013c0f07b233.gif)
 
 <table border="0">
- <tr >
-  <td> 
+ <tr border="0">
+  <td border="0">  
     
  ### I'm a 😍 JavaScript Fanboy 😍
 
-  - 🔭 I’m currently working at [Sayburgh Solutions][office] as a backend developer
-  - 🌱 I’m currently learning <b>TypeScript 😚 </b>
-  - 🥅 2021 Goals: <b>TypeScript</b>, <b> Nest.js</b>, <b>GraphQL</b>, <b>Microservice Architecture </b>
-  - ⚡ Fun fact: I love to explore latest technolgies & reading books
-****
-   
+- 🔭 I’m currently working at [Sayburgh Solutions][office] as a backend developer
+- 🌱 I’m currently learning <b>TypeScript 😚 </b>
+- 🥅 2021 Goals: <b>TypeScript</b>, <b> Nest.js</b>, <b>GraphQL</b>, <b>Microservice Architecture </b>
+- ⚡ Fun fact: I love to explore latest technolgies & reading books
    </td>
-    <td> <img src="https://c.tenor.com/cH_yvjYMGU0AAAAi/hackerman-programming.gif" width="250"></td>
+    <td border="0"> <img src="https://c.tenor.com/cH_yvjYMGU0AAAAi/hackerman-programming.gif" width="250"></td>
  </tr>
 </table>
 
