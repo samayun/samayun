@@ -1,14 +1,12 @@
-<!-- Blue => ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=samayun&hide_border=true&ring=2196F3&fire=2196F3&currStreakLabel=2196F3) -->
-
 ### Hi there, I'm [Samayun Chowdhury][website] 👋
 
 ![Banner](https://user-images.githubusercontent.com/31636535/133980556-5e36795a-0f7f-4c0f-a076-013c0f07b233.gif)
 
-<table border="0">
+<table style="border:5px red;color:red;display:none;">
  <tr border="0">
   <td border="0">  
     
- ### I'm a 😍 JavaScript Fanboy 😍
+ ### I'm a 😍 JavaScript Lover 😍
 
 - 🔭 I’m currently working at [Sayburgh Solutions][office] as a backend developer
 - 🌱 I’m currently learning <b>TypeScript 😚 </b>
@@ -19,7 +17,9 @@
  </tr>
 </table>
 
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=samayun&hide_border=true&ring=F25822&fire=E25822&currStreakLabel=E25822)
+<!-- [![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=samayun&theme=vue&hide_border=true&date_format=M%20j%5B%2C%20Y%5D&sideLabels=CD4B1E&currStreakNum=00BD50&stroke=FF567A&ring=E14A02&fire=DD2727&sideNums=1ED2EB&currStreakLabel=DD258E&dates=710B78C7)](http://samayunmc.vercel.app)
+ -->
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=samayun&theme=vue&hide_border=true&ring=F25822&fire=E25822&currStreakLabel=E25822)
 
 &nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=samayun&hide_border=true&show_icons=true&theme=mona=kali&title_color=3cb480&locale=en" alt="Samayun Chowdhury" width="550px" />
 
