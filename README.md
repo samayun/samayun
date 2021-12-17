@@ -2,20 +2,20 @@
 
 ![Banner](https://user-images.githubusercontent.com/31636535/133980556-5e36795a-0f7f-4c0f-a076-013c0f07b233.gif)
 
-<table style="border:5px red;color:red;display:none;">
- <tr border="0">
-  <td border="0">  
-    
- ### I'm a 😍 JavaScript Lover 😍
+### <img src="https://c.tenor.com/_DOBjnGspYAAAAAM/code-coding.gif" width="20"/> I'm a 😍 JavaScript Lover 😍
 
 - 🔭 I’m currently working at [Sayburgh Solutions][office] as a backend developer
 - 🌱 I’m currently learning <b>TypeScript 😚 </b>
 - 🥅 2021 Goals: <b>TypeScript</b>, <b> Nest.js</b>, <b>GraphQL</b>, <b>Microservice Architecture </b>
 - ⚡ Fun fact: I love to explore latest technolgies & reading books
-   </td>
+
+
+<!-- <table style="border:5px red;color:red;display:none;">
+ <tr border="0">
+  <td border="0"> </td>
     <td border="0"> <img src="https://c.tenor.com/_DOBjnGspYAAAAAM/code-coding.gif" /></td>
  </tr>
-</table>
+</table> -->
 
 <!-- [![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=samayun&theme=vue&hide_border=true&date_format=M%20j%5B%2C%20Y%5D&sideLabels=CD4B1E&currStreakNum=00BD50&stroke=FF567A&ring=E14A02&fire=DD2727&sideNums=1ED2EB&currStreakLabel=DD258E&dates=710B78C7)](http://samayunmc.vercel.app)
  -->
