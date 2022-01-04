@@ -1,8 +1,3 @@
-```css
-<style>H1{color:Blue;}</style>
-```
-
-
 ### Hi there, I'm [Samayun Chowdhury][website] 👋
 
 ![Banner](https://user-images.githubusercontent.com/31636535/133980556-5e36795a-0f7f-4c0f-a076-013c0f07b233.gif)
