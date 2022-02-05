@@ -22,8 +22,8 @@
  -->
 ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=samayun&theme=vue&hide_border=true&ring=F25822&fire=E25822&currStreakLabel=E25822)
 
-![Contribution Graph](https://activity-graph.herokuapp.com/graph?username=samayun)
 
+![Contribution Graph](https://activity-graph.herokuapp.com/graph?username=samayun&theme=vue&bg_color=fffff0&color=708090&line=24292e&point=24292e&area=true&hide_border=true)
 
 ### <img src="https://c.tenor.com/9q2hehDWaQYAAAAi/sending-love-cute.gif" width="50"> Connect with me: ![Profile Views ](https://komarev.com/ghpvc/?username=samayun&label=Profile%20Views&color=3cb480)
 
