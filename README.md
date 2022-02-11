@@ -15,13 +15,13 @@
     <td border="0"> <img src="https://c.tenor.com/_DOBjnGspYAAAAAM/code-coding.gif" /></td>
  </tr>
 </table> -->
-&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=samayun&hide_border=true&show_icons=true&theme=mona=kali&title_color=3cb480&locale=en" alt="Samayun Chowdhury" width="550px" />
 
+&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=samayun&hide_border=true&show_icons=true&theme=mona=kali&title_color=3cb480&locale=en" alt="Samayun Chowdhury" width="550px" />
 
 <!-- [![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=samayun&theme=vue&hide_border=true&date_format=M%20j%5B%2C%20Y%5D&sideLabels=CD4B1E&currStreakNum=00BD50&stroke=FF567A&ring=E14A02&fire=DD2727&sideNums=1ED2EB&currStreakLabel=DD258E&dates=710B78C7)](http://samayunmc.vercel.app)
  -->
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=samayun&theme=vue&hide_border=true&ring=F25822&fire=E25822&currStreakLabel=E25822)
 
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=samayun&theme=vue&hide_border=true&ring=F25822&fire=E25822&currStreakLabel=E25822)
 
 ![Contribution Graph](https://activity-graph.herokuapp.com/graph?username=samayun&theme=vue&bg_color=fffff0&color=708090&line=24292e&point=24292e&area=true&hide_border=true)
 
@@ -73,3 +73,5 @@
 [graphqlplaylist]: https://github.com/samayun?tab=repositories&q=graphql
 [mysql]: https://github.com/samayun?tab=repositories&q=mysql
 [typescript]: https://github.com/samayun?tab=repositories&q=typescript
+
+![3D Image](./profile-3d-contrib/profile-green-animate.svg)
