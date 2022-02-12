@@ -54,7 +54,7 @@
 
 <!-- ![Contribution Graph](https://activity-graph.herokuapp.com/graph?username=samayun&theme=vue&bg_color=fffff0&color=708090&line=24292e&point=24292e&area=true&hide_border=true) -->
 
-![3D Image](./profile-3d-contrib/profile-green-animate.svg)
+![3D Image](./profile-3d-contrib/profile-season-animate.svg)
 
 [banner]: https://media-exp1.licdn.com/dms/image/C5616AQHQz0FrV4bLEQ/profile-displaybackgroundimage-shrink_350_1400/0/1623739764608?e=1635984000&v=beta&t=l0lyl6NmBRwIvF1pm_4C9lmYMq-7J1obJ812lY3XAtk
 [office]: https://www.linkedin.com/company/sayburgh-solution
