@@ -16,14 +16,6 @@
  </tr>
 </table> -->
 
-<!-- &nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=samayun&hide_border=true&show_icons=true&theme=mona=kali&title_color=3cb480&locale=en" alt="Samayun Chowdhury" width="550px" /> -->
-
-<!-- ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=samayun&theme=vue&hide_border=true&ring=F25822&fire=E25822&currStreakLabel=E25822) -->
-
-<!-- ![Contribution Graph](https://activity-graph.herokuapp.com/graph?username=samayun&theme=vue&bg_color=fffff0&color=708090&line=24292e&point=24292e&area=true&hide_border=true) -->
-
-![3D Image](./profile-3d-contrib/profile-green-animate.svg)
-
 ### <img src="https://c.tenor.com/9q2hehDWaQYAAAAi/sending-love-cute.gif" width="50"> Connect with me: ![Profile Views ](https://komarev.com/ghpvc/?username=samayun&label=Profile%20Views&color=3cb480)
 
 [![LinkedIn Connect](https://img.shields.io/badge/Connect_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://bd.linkedin.com/in/samayun)
@@ -53,6 +45,16 @@
 [<img align="left" alt="GraphQL" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/graphql/graphql.png" />][graphqlplaylist]
 
 [<img align="left" alt="TypeScript" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png" />][typescript]
+
+
+
+<!-- &nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=samayun&hide_border=true&show_icons=true&theme=mona=kali&title_color=3cb480&locale=en" alt="Samayun Chowdhury" width="550px" /> -->
+
+<!-- ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=samayun&theme=vue&hide_border=true&ring=F25822&fire=E25822&currStreakLabel=E25822) -->
+
+<!-- ![Contribution Graph](https://activity-graph.herokuapp.com/graph?username=samayun&theme=vue&bg_color=fffff0&color=708090&line=24292e&point=24292e&area=true&hide_border=true) -->
+
+![3D Image](./profile-3d-contrib/profile-green-animate.svg)
 
 [banner]: https://media-exp1.licdn.com/dms/image/C5616AQHQz0FrV4bLEQ/profile-displaybackgroundimage-shrink_350_1400/0/1623739764608?e=1635984000&v=beta&t=l0lyl6NmBRwIvF1pm_4C9lmYMq-7J1obJ812lY3XAtk
 [office]: https://www.linkedin.com/company/sayburgh-solution
