@@ -1,9 +1,9 @@
 name: GitHub-Profile-3D-Contribution
 
 on:
-  schedule:
-    - cron: "0 */18 * * *"
-  workflow_dispatch:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
@@ -17,8 +17,8 @@ jobs:
           USERNAME: ${{ github.repository_owner }}
       - name: Commit & Push
         run: |
-          git config user.name formidablae
-          git config user.email 81068781+formidablae@users.noreply.github.com
+          git config user.name samayun
+          git config user.email samayun.m.chowdhury@gmail.com
           git add -A .
-          git commit -m "Personal 3d Contributions images updated"
+          git commit -m "chore(ci/cd): Personal 3d Contributions images"
           git push
