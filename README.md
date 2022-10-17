@@ -65,7 +65,16 @@
       📘 Latest Blog Articles
 
 <!-- BLOG-POST-LIST:START -->
-
+- [Setup CI/CD for typescript based npm package](https://samayunmc.medium.com/setup-ci-cd-for-typescript-based-npm-package-3f3c6354b143?source=rss-39ef8cdf061a------2)
+- [How to denormalize &amp; sync Mongoose Models easily?](https://stackoverflow.com/questions/71328299/how-to-denormalize-sync-mongoose-models-easily)
+- [Play with TypeScript in one blog](https://dev.to/samayun/play-with-typescript-in-one-blog-204g)
+- [Let’s burn your code by fire](https://samayunmc.medium.com/lets-burn-your-code-by-fire-dffb383e0634?source=rss-39ef8cdf061a------2)
+- [Most productive exception handling ever on Node.js](https://samayunmc.medium.com/most-productive-exception-handling-ever-on-node-js-96828aac83cf?source=rss-39ef8cdf061a------2)
+- [Answer by Samayun Miah Chowdhury for No CORS error when making GET requests, but CORS error when making POST requests](https://stackoverflow.com/questions/70165722/no-cors-error-when-making-get-requests-but-cors-error-when-making-post-requests/70166231#70166231)
+- [Array to Hashmap in Node.js application](https://samayunmc.medium.com/array-to-hashmap-in-node-js-application-36862cb8746c?source=rss-39ef8cdf061a------2)
+- [Install Avro Keyboard in Linux Mint](https://samayunmc.medium.com/install-avro-keyboard-in-linux-mint-c88be1239d85?source=rss-39ef8cdf061a------2)
+- [JavaScript The Tricky Parts: Part-2](https://samayunmc.medium.com/javascript-the-tricky-parts-part-2-1cf32a8dd825?source=rss-39ef8cdf061a------2)
+- [React js :All you need to Know](https://samayunmc.medium.com/react-js-all-you-need-to-know-54902c247eab?source=rss-39ef8cdf061a------2)
 <!-- BLOG-POST-LIST:END -->
 
 ▶ [...more blog articles](https://samayunmc.medium.com)  
