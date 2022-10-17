@@ -9,7 +9,9 @@
 
 <!-- <table style="border:5px red;color:red;display:none;">
  <tr border="0">
-  <td border="0"> </td>
+  <td border="0">
+<img align="left" alt="Docker" height="300" src="./profile-3d-contrib/profile-season-animate.svg" />
+  </td>
     <td border="0"> <img src="https://c.tenor.com/_DOBjnGspYAAAAAM/code-coding.gif" /></td>
  </tr>
 </table> -->
@@ -44,7 +46,7 @@
 [<img align="left" alt="MongoDB" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mongodb/mongodb.png" />][webdevplaylist]
 
 [<img align="left" alt="Laravel" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/laravel/laravel.png" />][laravelplaylist]
-
+<br/>
 
 
 <!-- &nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=samayun&hide_border=true&show_icons=true&theme=mona=kali&title_color=3cb480&locale=en" alt="Samayun Chowdhury" width="550px" /> -->
@@ -52,8 +54,30 @@
 <!-- ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=samayun&theme=vue&hide_border=true&ring=F25822&fire=E25822&currStreakLabel=E25822) -->
 
 <!-- ![Contribution Graph](https://activity-graph.herokuapp.com/graph?username=samayun&theme=vue&bg_color=fffff0&color=708090&line=24292e&point=24292e&area=true&hide_border=true) -->
+<br/>
+<br/>
 
-![3D Image](./profile-3d-contrib/profile-season-animate.svg)
+
+
+<table style="border:5px red;color:red;display:none;">
+ <tr border="0">
+  <td border="0" width="50%">
+      📘 Latest Blog Articles
+
+<!-- BLOG-POST-LIST:START -->
+
+<!-- BLOG-POST-LIST:END -->
+
+▶ [...more blog articles](https://samayunmc.medium.com)  
+  </td>
+  <td border="0"> <img align="left" alt="Docker" src="./profile-3d-contrib/profile-season-animate.svg" /> </td>
+ </tr>
+</table>
+
+<!-- ![3D Image](./profile-3d-contrib/profile-season-animate.svg) -->
+
+
+
 
 [banner]: https://media-exp1.licdn.com/dms/image/C5616AQHQz0FrV4bLEQ/profile-displaybackgroundimage-shrink_350_1400/0/1623739764608?e=1635984000&v=beta&t=l0lyl6NmBRwIvF1pm_4C9lmYMq-7J1obJ812lY3XAtk
 [office]: https://www.linkedin.com/company/sayburgh-solution
