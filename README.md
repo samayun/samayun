@@ -62,7 +62,6 @@
 
 <!-- BLOG-POST-LIST:START -->
 - [Setup CI/CD for typescript based npm package](https://samayunmc.medium.com/setup-ci-cd-for-typescript-based-npm-package-3f3c6354b143?source=rss-39ef8cdf061a------2)
-- [Play with TypeScript in one blog](https://dev.to/samayun/play-with-typescript-in-one-blog-204g)
 - [Let’s burn your code by fire](https://samayunmc.medium.com/lets-burn-your-code-by-fire-dffb383e0634?source=rss-39ef8cdf061a------2)
 - [Most productive exception handling ever on Node.js](https://samayunmc.medium.com/most-productive-exception-handling-ever-on-node-js-96828aac83cf?source=rss-39ef8cdf061a------2)
 - [Array to Hashmap in Node.js application](https://samayunmc.medium.com/array-to-hashmap-in-node-js-application-36862cb8746c?source=rss-39ef8cdf061a------2)
@@ -71,6 +70,7 @@
 - [React js :All you need to Know](https://samayunmc.medium.com/react-js-all-you-need-to-know-54902c247eab?source=rss-39ef8cdf061a------2)
 - [পৃথিবীর সবচেয়ে ছোট টেক উপন্যাসঃ এক বেকবেঞ্চারের জাভাস্ক্রিপ্ট যাত্রা](https://samayunmc.medium.com/%E0%A6%AA%E0%A7%83%E0%A6%A5%E0%A6%BF%E0%A6%AC%E0%A7%80%E0%A6%B0-%E0%A6%B8%E0%A6%AC%E0%A6%9A%E0%A7%87%E0%A7%9F%E0%A7%87-%E0%A6%9B%E0%A7%8B%E0%A6%9F-%E0%A6%9F%E0%A7%87%E0%A6%95-%E0%A6%89%E0%A6%AA%E0%A6%A8%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B8%E0%A6%83-%E0%A6%8F%E0%A6%95-%E0%A6%AC%E0%A7%87%E0%A6%95%E0%A6%AC%E0%A7%87%E0%A6%9E%E0%A7%8D%E0%A6%9A%E0%A6%BE%E0%A6%B0%E0%A7%87%E0%A6%B0-%E0%A6%9C%E0%A6%BE%E0%A6%AD%E0%A6%BE%E0%A6%B8%E0%A7%8D%E0%A6%95%E0%A7%8D%E0%A6%B0%E0%A6%BF%E0%A6%AA%E0%A7%8D%E0%A6%9F-%E0%A6%AF%E0%A6%BE%E0%A6%A4%E0%A7%8D%E0%A6%B0%E0%A6%BE-a44e0a8119e5?source=rss-39ef8cdf061a------2)
 - [JavaScript The Tricky Parts: Part-1](https://samayunmc.medium.com/javascript-the-tricky-parts-part-1-1a7c0521fb79?source=rss-39ef8cdf061a------2)
+- [How to make relationship with javaScript](https://samayunmc.medium.com/how-to-make-relationship-with-javascript-e3e7c134dfe0?source=rss-39ef8cdf061a------2)
 <!-- BLOG-POST-LIST:END -->
 
 ❤️ [...more blog articles](https://samayunmc.medium.com)  
