@@ -1,4 +1,4 @@
-### Hi there, I'm [Samayun Chowdhury][website] 👋
+### Hi there, I'm Samayun Chowdhury 👋
 
 <!-- ![Banner](https://user-images.githubusercontent.com/31636535/133980556-5e36795a-0f7f-4c0f-a076-013c0f07b233.gif) -->
 
@@ -88,7 +88,7 @@
 
 [banner]: https://media-exp1.licdn.com/dms/image/C5616AQHQz0FrV4bLEQ/profile-displaybackgroundimage-shrink_350_1400/0/1623739764608?e=1635984000&v=beta&t=l0lyl6NmBRwIvF1pm_4C9lmYMq-7J1obJ812lY3XAtk
 [office]: https://www.linkedin.com/company/sayburgh-solution
-[website]: https://samayun-mc.web.app
+[website]: https://github.com/samayun
 [twitter]: https://twitter.com/samayunmc
 [linkedin]: https://linkedin.com/in/samayun
 [webdevplaylist]: https://github.com/samayun?tab=repositories
