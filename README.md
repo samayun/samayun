@@ -65,7 +65,7 @@
 - [Play with TypeScript in one blog](https://dev.to/samayun/play-with-typescript-in-one-blog-204g)
 <!-- BLOG-POST-LIST:END -->
 
-❤️ [...more blog articles](https://samayunmc.medium.com)  
+❤️ [...more blog articles](https://samayun.medium.com)  
 
 
 ### 📊 GitHub Stats:
