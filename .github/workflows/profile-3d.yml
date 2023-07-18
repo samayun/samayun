@@ -21,6 +21,7 @@ jobs:
         run: |
           git config user.name samayun
           git config user.email samayun.m.chowdhury@gmail.com
+          git pull
           git add -A .
           git commit -m "chore(ci/cd): Personal 3d Contributions images"
           git push
