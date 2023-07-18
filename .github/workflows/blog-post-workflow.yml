@@ -19,5 +19,5 @@ jobs:
         with:
           max_post_count: "10"
           remove_duplicates: true
-          feed_list: "https://dev.to/feed/samayun,https://samayun.medium.com/feed"
+          feed_list: "https://dev.to/feed/samayun,https://samayun.medium.com/feed,https://stackoverflow.com/feeds/user/12932846"
 # Exclude stackOverflow feeds : https://stackoverflow.com/feeds/user/12932846
