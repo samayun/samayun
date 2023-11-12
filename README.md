@@ -29,6 +29,10 @@
 
 ### <img src="https://c.tenor.com/U45Q8YaJzBUAAAAC/moti-hearts.gif" width="50"> Languages and Tools:
 
+[<img align="left" alt="redis" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/redis/redis.png" />][webdevplaylist]
+
+
+
 [<img align="left" alt="Docker" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png" />][dockerplaylist]
 
 <!-- [<img align="left" alt="kubernetes" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/kubernetes/kubernetes.png" />][kubernetes] -->
