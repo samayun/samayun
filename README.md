@@ -2,9 +2,9 @@
 
 <!-- ![Banner](https://user-images.githubusercontent.com/31636535/133980556-5e36795a-0f7f-4c0f-a076-013c0f07b233.gif) -->
 
-### <img src="https://c.tenor.com/_DOBjnGspYAAAAAM/code-coding.gif" width="20"/> I'm a 😍 Developer 😍
-- 🌱 I’m currently learning <b class="H1">Kubernetes <img src="https://kubernetes.io/images/nav_logo.svg" width="150"/>  </b> 
-- 🥅 2023 Goals: <b style="color: green"> Cassandra</b>,<b>Neo4j</b>,<b>Grpc</b>, <b>Microservice Architecture </b>
+### <img src="https://c.tenor.com/_DOBjnGspYAAAAAM/code-coding.gif" width="20"/> I'm a 😍 Software Engineer 😍
+- 🌱 I’m currently exploring <b class="H1"> Machine Learning  </b> 
+- 🥅 2024 Goals: <b style="color: green"> Scikit-learn</b>,<b>PyTorch</b>
 - ⚡ Fun fact: I love to explore latest technolgies & reading books
 
 <!-- <table style="border:5px red;color:red;display:none;">
