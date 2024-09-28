@@ -28,41 +28,65 @@
 <img src="https://github-readme-stats.vercel.app/api/top-langs?username=samayun&show_icons=true&theme=vue&title_color=white&locale=en&layout=compact" alt="Samayun Chowdhury" width="500px" style="margin-left: 20px;" /> -->
 
 ### <img src="https://c.tenor.com/U45Q8YaJzBUAAAAC/moti-hearts.gif" width="50"> Languages and Tools:
+<div align="left">
+  <a href="https://github.com/samayun?tab=repositories&q=elastic" target="_blank">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOGWjWs6SAj5eH77doethfAafmC_cVoGQ_Rg&s" alt="Elastic Search" width="50" height="50"/>
+  </a>
+  <a href="https://github.com/samayun?tab=repositories&q=kafka" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Apache_kafka-icon.svg/1200px-Apache_kafka-icon.svg.png" alt="Kafka" width="50" height="50"/>
+  </a>
+  <a href="https://github.com/samayun?tab=repositories&q=nginx" target="_blank">
+    <img src="https://www.svgrepo.com/show/373924/nginx.svg" alt="NginX" width="50" height="50"/>
+  </a>
+  <a href="https://github.com/samayun?tab=repositories&q=redis" target="_blank">
+    <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/redis/redis.png" alt="Redis" width="50" height="50"/>
+  </a>
+  <a href="https://github.com/samayun?tab=repositories&q=docker" target="_blank">
+    <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png" alt="Docker" width="50" height="50"/>
+  </a>
+  <a href="https://github.com/samayun?tab=repositories&q=nestjs" target="_blank">
+    <img src="https://nestjs.com/logo-small-gradient.76616405.svg" alt="Nest JS" width="50" height="50"/>
+  </a>
+  <a href="https://github.com/samayun?tab=repositories&q=rabbitmq" target="_blank">
+    <img src="https://www.rabbitmq.com/img/rabbitmq-logo-with-name.svg" alt="Rabbit MQ" width="50" height="50"/>
+  </a>
+  <a href="https://github.com/samayun?tab=repositories&q=aws" target="_blank">
+    <img src="https://user-images.githubusercontent.com/2277182/75613896-f24f5800-5b32-11ea-966e-4ed4b41f873a.png" alt="AWS S3" width="50" height="50"/>
+  </a>
+  <a href="https://github.com/samayun?tab=repositories&q=mongodb" target="_blank">
+    <img src="https://seeklogo.com/images/M/mongodb-logo-655F7D542D-seeklogo.com.png" alt="MongoDB" width="50" height="50"/>
+  </a>
+  <a href="https://github.com/samayun?tab=repositories&q=cloudflare" target="_blank">
+    <img src="https://cdn-1.webcatalog.io/catalog/cloudflare-stream/cloudflare-stream-icon-filled-256.png?v=1675613678839" alt="Cloudflare Stream" width="50" height="50"/>
+  </a>
+  <a href="https://github.com/samayun?tab=repositories&q=laravel" target="_blank">
+    <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/laravel/laravel.png" alt="Laravel" width="50" height="50"/>
+  </a>
+  <a href="https://github.com/samayun?tab=repositories&q=postgresql" target="_blank">
+    <img src="https://w7.pngwing.com/pngs/441/460/png-transparent-postgresql-plain-wordmark-logo-icon-thumbnail.png" alt="PostgreSQL" width="50" height="50"/>
+  </a>
+  <a href="https://github.com/samayun?tab=repositories&q=typescript" target="_blank">
+    <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png" alt="TypeScript" width="50" height="50"/>
+  </a>
+  <a href="https://github.com/samayun?tab=repositories&q=kubernetes" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Kubernetes_logo_without_workmark.svg/2109px-Kubernetes_logo_without_workmark.svg.png" alt="Kubernetes" width="50" height="50"/>
+  </a>
+  <a href="https://github.com/samayun?tab=repositories&q=pandas" target="_blank">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHZd37oUzVXPHOsl-Ygg5hzYpZs7Djvk-vSw&s" alt="Pandas" width="50" height="50"/>
+  </a>
+  <a href="https://github.com/samayun?tab=repositories&q=numpy" target="_blank">
+    <img src="https://cdn.worldvectorlogo.com/logos/numpy-1.svg" alt="NumPy" width="50" height="50"/>
+  </a>
+  <a href="https://github.com/samayun?tab=repositories&q=scikit-learn" target="_blank">
+    <img src="https://thedatascientist.com/wp-content/uploads/2023/05/scikit-learn-1024x551.png" alt="Scikit Learn" width="50" height="50"/>
+  </a>
+</div>
 
-[<img align="left" alt="redis" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/redis/redis.png" />][webdevplaylist]
-
-
-
-[<img align="left" alt="Docker" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png" />][dockerplaylist]
-
-<!-- [<img align="left" alt="kubernetes" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/kubernetes/kubernetes.png" />][kubernetes] -->
-
-[<img align="left" alt="GraphQL" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/graphql/graphql.png" />][graphqlplaylist]
-
-[<img align="left" alt="TypeScript" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png" />][typescript]
-
-[<img align="left" alt="React" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" />][reactplaylist]
-
-
-[<img align="left" alt="Vue JS" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/vue/vue.png" />][vueplaylist]
-
-
-[<img align="left" alt="MongoDB" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mongodb/mongodb.png" />][webdevplaylist]
-
-[<img align="left" alt="Laravel" width="40px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/laravel/laravel.png" />][laravelplaylist]
-<br/>
-
-
-<!-- &nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=samayun&hide_border=true&show_icons=true&theme=mona=kali&title_color=3cb480&locale=en" alt="Samayun Chowdhury" width="550px" /> -->
+<!-- &nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=samayun&hide_border=true&show_icons=true&theme=mona=kali&title_color=3cb480&locale=en" alt="Samayun Chowdhury" width="550px" /> 
 
 <!-- ![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=samayun&theme=vue&hide_border=true&ring=F25822&fire=E25822&currStreakLabel=E25822) -->
 
-<!-- ![Contribution Graph](https://activity-graph.herokuapp.com/graph?username=samayun&theme=vue&bg_color=fffff0&color=708090&line=24292e&point=24292e&area=true&hide_border=true) -->
-<br/>
-<br/>
-
 [![Leetcode Stats](https://leetcard.jacoblin.cool/samayun?ext=activity&border=0&radius=20&theme=wtf)](https://leetcode.com/samayun)
-
 
 ### 📝 Latest Blog Articles
 
@@ -97,8 +121,6 @@
 -->
 
 <!-- ![3D Image](./profile-3d-contrib/profile-season-animate.svg) -->
-
-
 
 [banner]: https://media-exp1.licdn.com/dms/image/C5616AQHQz0FrV4bLEQ/profile-displaybackgroundimage-shrink_350_1400/0/1623739764608?e=1635984000&v=beta&t=l0lyl6NmBRwIvF1pm_4C9lmYMq-7J1obJ812lY3XAtk
 [office]: https://www.linkedin.com/company/sayburgh-solution
