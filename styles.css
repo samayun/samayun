@@ -134,7 +134,7 @@ body {
 
 .blog-card img {
     width: 100%;
-    height: 200px;
+    /* height: 200px; */
     object-fit: cover;
     border-radius: 8px;
 }
@@ -143,14 +143,14 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: 1rem;
+    /* padding: 1rem; */
     background: rgba(0,0,0,0.2);
     border-radius: 8px;
     margin: 0 10px;
 }
 
 .slide-image {
-    height: 200px;
+    /* height: 200px; */
     object-fit: cover;
     border-radius: 6px;
     margin-bottom: 1rem;
@@ -651,15 +651,39 @@ body {
 .project-media {
     flex: 1;
     position: relative;
-    max-width: 40%;
+    max-width: 60% !important;
+    height: 600px !important;
 }
 
 .slide-image {
     width: 100%;
-    height: 300px;
+    height: 100% !important;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.slide-image:active {
+    transform: scale(1.5);
+    z-index: 999;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.slide-image.zoomed {
+    position: fixed;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(2) !important;
+    width: auto !important;
+    height: 90vh !important;
+    z-index: 9999;
+    cursor: zoom-out;
+    background: rgba(0,0,0,0.95);
+    padding: 20px;
+    border-radius: 4px;
 }
 
 .project-link {
@@ -728,13 +752,13 @@ body {
 }
 
 .blog-image-container {
-    width: 100%;
-    height: 250px;
+    /* width: 100%; */
+    height: 300px;
     overflow: hidden;
 }
 
 .blog-image {
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
@@ -820,3 +844,5 @@ body {
     font-size: 2rem;
     backdrop-filter: blur(5px);
 }
+/* RESPONSIVE DESIGN */
+

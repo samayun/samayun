@@ -350,38 +350,8 @@ const projects = [
         scrollTime: 5,
     },
 
-    // {
-    //     id: 2,
-    //     category: "backend",
-    //     title: "সময়ের স্কুল",
-    //     description: "Somoy School is an Edu Tech Platform",
-    //     features: [
-    //         `MongoDB Aggregation Framework`,
-    //         `Cloudflare Stream`,
-    //         `Cloud Function for media access authorization on the fly`,
-    //     ],
-    //     technologies: [
-    //         {
-    //             key: "Redis",
-    //             icon: "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/redis/redis.png",
-    //         },
-    //         {
-    //             key: "Docker",
-    //             icon: "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png",
-    //         },
-    //         { key: "Nest JS", icon: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUDlYKWwiHIBw0AwCCpREi9UdXkn0JlZkyCw&s` },
-    //         { key: "MongoDB", icon: "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mongodb/mongodb.png" },
-    //         {
-    //             key: "Cloudflare Stream",
-    //             icon: "https://cdn-1.webcatalog.io/catalog/cloudflare-stream/cloudflare-stream-icon-filled-256.png?v=1675613678839",
-    //         },
-    //     ],
-    //     live_url: "https://somoy.school",
-    //     image: "https://samayun.vercel.app/assets/image/work/somoySchool.jpg",
-    //     scrollTime: 5,
-    // },
     {
-        id: 11,
+        id: 2,
         category: "plugin",
         title: "MongoCat",
         description:
@@ -407,6 +377,36 @@ const projects = [
             }
         ],
         scrollTime: 7,
+    },
+    {
+        id: 3,
+        category: "backend",
+        title: "সময়ের স্কুল",
+        description: "Somoy School is an Edu Tech Platform",
+        features: [
+            `MongoDB Aggregation Framework`,
+            `Cloudflare Stream`,
+            `Cloud Function for media access authorization on the fly`,
+        ],
+        technologies: [
+            {
+                key: "Redis",
+                icon: "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/redis/redis.png",
+            },
+            {
+                key: "Docker",
+                icon: "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png",
+            },
+            { key: "Nest JS", icon: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUDlYKWwiHIBw0AwCCpREi9UdXkn0JlZkyCw&s` },
+            { key: "MongoDB", icon: "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mongodb/mongodb.png" },
+            {
+                key: "Cloudflare Stream",
+                icon: "https://cdn-1.webcatalog.io/catalog/cloudflare-stream/cloudflare-stream-icon-filled-256.png?v=1675613678839",
+            },
+        ],
+        live_url: "https://somoy.school",
+        image: "https://samayun.vercel.app/assets/image/work/somoySchool.jpg",
+        scrollTime: 5,
     },
 ];
 
@@ -707,6 +707,23 @@ document.addEventListener('click', (e) => {
             e.target.previousElementSibling.id.replace('-dots', '');
         const direction = e.target.classList.contains('prev') ? -1 : 1;
         moveSlide(direction, type);
+    }
+});
+
+// Add click handler for image scaling
+document.addEventListener('click', (e) => {
+    const img = e.target.closest('.slide-image');
+    if (img) {
+        img.classList.toggle('zoomed');
+        document.body.style.overflow = img.classList.contains('zoomed') ? 'hidden' : '';
+    }
+});
+
+// Close zoom on click outside
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('zoomed')) {
+        e.target.classList.remove('zoomed');
+        document.body.style.overflow = '';
     }
 });
 
