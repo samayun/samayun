@@ -207,40 +207,39 @@ body {
 }
 
 .carousel-dots {
-    display: flex;
-    gap: 12px;
-    padding: 10px;
-    background: rgba(0,0,0,0.3);
-    border-radius: 30px;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: static !important;
+    transform: none !important;
 }
 
+/* Responsive Dots */
 .carousel-dots .dot {
+    flex-shrink: 0;
     width: 32px;
     height: 32px;
-    border-radius: 50%;
-    background: rgba(46, 204, 113, 0.2);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(46, 204, 113, 0.3);
     font-size: 0.9rem;
 }
 
-.carousel-dots .dot.active {
-    background: var(--primary-green);
-    transform: scale(1.15);
-    box-shadow: 0 0 15px rgba(46, 204, 113, 0.3);
-    border-color: rgba(255,255,255,0.2);
+@media (max-width: 768px) {
+    .carousel-dots {
+        max-width: 100%;
+        overflow-x: auto;
+        padding: 0 1rem;
+    }
+    
+    .carousel-dots .dot {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
 }
 
-.carousel-dots .dot:hover:not(.active) {
-    background: rgba(46, 204, 113, 0.3);
-    transform: scale(1.05);
+/* Active Dot Highlight */
+.carousel-dots .dot.active {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0,255,255,0.3);
 }
 
 .skill-card {
@@ -415,13 +414,6 @@ body {
     display: flex;
     gap: 1rem;
     order: 0;
-}
-
-.carousel-dots {
-    order: 1;
-    margin: 0;
-    display: flex !important;
-    opacity: 1 !important;
 }
 
 .carousel-arrow {

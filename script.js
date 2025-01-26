@@ -467,12 +467,12 @@ function displayTerminalContent(content) {
 
 function homeCommand() {
     const homeContent = [
-        'Samayun Miah Chowdhury - Profile\n',
-        `Name:    ${profile.name}`,
-        `About:   ${profile.about}`,
-        `Email:   ${profile.email}`,
-        `GitHub:  ${profile.github}`,
-        `Resume:  ${profile.resumeDownloadLink}\n`,
+        'Samayun Miah Chowdhury - Profile<br>',
+        `Name:    ${profile.name}<br/>`,
+        `About:   ${profile.about}<br/>`,
+        `Email:   ${profile.email}<br/>`,
+        `GitHub:  ${profile.github}<br/>`,
+        `Resume:  ${profile.resumeDownloadLink}<br/>`,
         'Type "help" for available commands'
     ];
     displayTerminalContent(homeContent);
