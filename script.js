@@ -278,27 +278,7 @@ const skills = [
 
 const work = [
     {
-        position: 'Backend Developer',
-        company: 'Sayburgh Solutions Ltd.',
-        start: '26 June 2021',
-        end: '31 July 2023',
-        website: 'https://sayburgh.com',
-        responsibility: [
-            `Refactored & optimized some expensive db queries for SomoyNews API* Developed a Video On Demand
-        (VOD) application similar to HoiChoi, Chorkie .Estimating at least 100K+ requests per day`,
-            `Developed a Human Resource Management Saas product`,
-            `Built an special plugin to optimize read operations performance & reduced complex join queries`,
-            `Built internal tools, wrote scripts which were helpful for faster communication on teams`,
-            `Implemented optimization to reduced complex join queries by ~ 35 % on the backend`,
-            `Tools & Concepts I am used to there: Nest.js, MongoDB,Redis,Docker,TypeScript, Cloudflare Services
-        (Serverless functions,Stream), Domain Driven Design, GitHook`,
-            `Redis Lock, Redis Stream, Redis Transaction`,
-            `Multi Tenant setup on a hybrid architecture project`,
-            `Tools & Concepts I am used to there: Nest.js, MongoDB,Redis,Docker,TypeScript, Cloudflare Services
-        (Serverless functions,Stream), Domain Driven Design, GitHook`
-        ],
-    },
-    {
+        id: 2,
         position: 'Sr. Software Engineer',
         company: 'RedQ',
         start: '23 September 2024',
@@ -306,8 +286,27 @@ const work = [
         website: 'https://redq.io',
         responsibility: [
             `Exploring Elastic Search,Kafka architectures....`,
-            `TinyBird Analytics`,
-            `Change Data capture using sequin`
+            `TinyBird: Realtime Analytics`,
+            `Sequin: Change Data Capture`,
+            `Elastic Search: Search Engine`,
+        ],
+    },
+    {
+        id: 1,
+        position: 'Backend Developer',
+        company: 'Sayburgh Solutions Ltd.',
+        start: '26 June 2021',
+        end: '31 July 2023',
+        website: 'https://sayburgh.com',
+        responsibility: [
+            `Refactored & optimized some expensive db queries for SomoyNews API`,
+            `Developed a Video On Demand (VOD) applicatio. Estimating at least 100K+ requests per day`,
+            `Developed a Human Resource Management Saas product`,
+            `Built an special plugin to optimize read operations performance & reduced complex join queries`,
+            `Built internal tools, wrote scripts which were helpful for faster communication on teams`,
+            `Implemented optimization to reduced complex join queries by ~ 35 % on the backend`,
+            `Tools & Concepts I am used to there: Nest.js, MongoDB,Redis,Docker,TypeScript, Cloudflare Services
+            (Serverless functions,Stream), Domain Driven Design, GitHook`
         ],
     },
 ];
@@ -500,22 +499,52 @@ function educationCommand() {
 
 function projectsCommand() {
     const projectsHTML = `
-        <div class="projects-grid">
-            ${projects.map(project => `
-                <div class="project-card">
-                    <img src="${project.image}" alt="${project.title}">
-                    <h3>${project.title}</h3>
-                    <p>${project.description}</p>
-                    <div class="tech-stack">
-                        ${project.technologies.map(tech => `
-                            <img src="${tech.icon}" alt="${tech.key}" title="${tech.key}">
-                        `).join('')}
+        <div class="carousel-container">
+            <div class="carousel-track" id="project-carousel">
+                ${projects.map(project => `
+                    <div class="carousel-slide">
+                        <div class="project-content">
+                            <div class="project-media">
+                                <img src="${project.image}" alt="${project.title}" class="slide-image">
+                                ${project.live_url ? `
+                                    <a href="${project.live_url}" target="_blank" class="project-link">
+                                        <span class="link-icon">🌐</span> Visit Live
+                                    </a>
+                                ` : ''}
+                            </div>
+                            <div class="project-details">
+                                <h3>${project.title}</h3>
+                                <div class="tech-stack">
+                                    ${project.technologies.map(tech => `
+                                        <div class="tech-item">
+                                            <img src="${tech.icon}" alt="${tech.key}" title="${tech.key}">
+                                            <span>${tech.key}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                <p class="project-description">${project.description}</p>
+                                ${project.features ? `
+                                    <div class="project-features">
+                                        <h4>Key Features:</h4>
+                                        <ul>
+                                            ${project.features.map(feat => `<li>${feat}</li>`).join('')}
+                                        </ul>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </div>
                     </div>
-                </div>
-            `).join('')}
+                `).join('')}
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-arrow prev" onclick="moveSlide(-1, 'project')">‹</button>
+                <div class="carousel-dots" id="project-dots"></div>
+                <button class="carousel-arrow next" onclick="moveSlide(1, 'project')">›</button>
+            </div>
         </div>
     `;
     displayTerminalContent(projectsHTML);
+    initCarousel('project', projects.length);
 }
 
 // Dock Event Listeners
@@ -571,56 +600,44 @@ function blogCommand() {
             <div class="carousel-track" id="blog-carousel">
                 ${blogData.map(blog => `
                     <div class="carousel-slide">
-                        <img src="${blog.image}" alt="${blog.title}" class="slide-image">
-                        <div class="slide-content">
-                            <h3>${blog.title}</h3>
-                            <p class="slide-date">${blog.createdAt}</p>
-                            <div class="slide-description">${blog.description}</div>
-                            <a href="${blog.link}" target="_blank" class="slide-link">Read Article →</a>
+                        <div class="blog-card">
+                            <div class="blog-image-container">
+                                <img src="${blog.image}" alt="${blog.title}" class="blog-image">
+                                <div class="blog-gradient"></div>
+                            </div>
+                            <div class="blog-card-content">
+                                <h3 class="blog-title">${blog.title}</h3>
+                                <div class="blog-meta">
+                                    <span class="blog-date">${blog.createdAt}</span>
+                                    <div class="blog-tags">
+                                        ${blog.tags?.map(tag => `<span class="blog-tag">${tag}</span>`).join('')}
+                                    </div>
+                                </div>
+                                <p class="blog-description">
+                                    ${blog.description.replace(/\n\s+/g, ' ').substring(0, 350).trim()}...
+                                </p>
+                                <a href="${blog.link}" target="_blank" class="blog-read-more">
+                                    <span>Continue Reading</span>
+                                    <svg class="arrow-icon" viewBox="0 0 24 24" width="16" height="16">
+                                        <path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 `).join('')}
             </div>
             <div class="carousel-controls">
-                <button class="carousel-arrow prev" onclick="moveSlide(-1, 'blog')">‹</button>
+                <div class="carousel-nav">
+                    <button class="carousel-arrow prev" onclick="moveSlide(-1, 'blog')">‹</button>
+                    <button class="carousel-arrow next" onclick="moveSlide(1, 'blog')">›</button>
+                </div>
                 <div class="carousel-dots" id="blog-dots"></div>
-                <button class="carousel-arrow next" onclick="moveSlide(1, 'blog')">›</button>
             </div>
         </div>
     `;
     displayTerminalContent(blogHTML);
     initCarousel('blog', blogData.length);
-}
-
-function projectsCommand() {
-    const projectsHTML = `
-        <div class="carousel-container">
-            <div class="carousel-track" id="project-carousel">
-                ${projects.map(project => `
-                    <div class="carousel-slide">
-                        <img src="${project.image}" alt="${project.title}" class="slide-image">
-                        <div class="slide-content">
-                            <h3>${project.title}</h3>
-                            <div class="tech-stack">
-                                ${project.technologies.map(tech => `
-                                    <img src="${tech.icon}" alt="${tech.key}" title="${tech.key}">
-                                `).join('')}
-                            </div>
-                            <p class="slide-description">${project.description}</p>
-                            ${project.live_url ? `<a href="${project.live_url}" target="_blank" class="slide-link">View Project →</a>` : ''}
-                        </div>
-                    </div>
-                `).join('')}
-            </div>
-            <div class="carousel-controls">
-                <button class="carousel-arrow prev" onclick="moveSlide(-1, 'project')">‹</button>
-                <div class="carousel-dots" id="project-dots"></div>
-                <button class="carousel-arrow next" onclick="moveSlide(1, 'project')">›</button>
-            </div>
-        </div>
-    `;
-    displayTerminalContent(projectsHTML);
-    initCarousel('project', projects.length);
 }
 
 function skillsCommand() {
@@ -647,9 +664,16 @@ let currentSlide = {
 function initCarousel(type, totalSlides) {
     const dotsContainer = document.getElementById(`${type}-dots`);
     dotsContainer.innerHTML = Array.from({length: totalSlides}, (_, i) => 
-        `<span class="dot ${i === 0 ? 'active' : ''}" onclick="goToSlide(${i}, '${type}')"></span>`
+        `<span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}">${i + 1}</span>`
     ).join('');
-    updateSlidePosition(type);
+    
+    // Add click handlers to dots
+    document.querySelectorAll(`#${type}-dots .dot`).forEach(dot => {
+        dot.addEventListener('click', () => {
+            const index = parseInt(dot.dataset.index);
+            goToSlide(index, type);
+        });
+    });
 }
 
 function moveSlide(direction, type) {
@@ -665,11 +689,24 @@ function goToSlide(index, type) {
 
 function updateSlidePosition(type) {
     const carousel = document.getElementById(`${type}-carousel`);
-    const slideWidth = carousel.offsetWidth / (type === 'blog' ? blogData.length : projects.length);
+    const slideWidth = carousel.offsetWidth; // Get full width of visible area
+    
     carousel.style.transform = `translateX(-${currentSlide[type] * slideWidth}px)`;
     
+    // Update dot indicators
     document.querySelectorAll(`#${type}-dots .dot`).forEach((dot, index) => {
         dot.classList.toggle('active', index === currentSlide[type]);
     });
 }
+
+// Add proper event listeners for arrows
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('carousel-arrow')) {
+        const type = e.target.classList.contains('prev') ? 
+            e.target.nextElementSibling.id.replace('-dots', '') : 
+            e.target.previousElementSibling.id.replace('-dots', '');
+        const direction = e.target.classList.contains('prev') ? -1 : 1;
+        moveSlide(direction, type);
+    }
+});
 
