@@ -2,7 +2,7 @@
 const profile = {
     name: "Samayun Miah Chowdhury",
     image: "https://avatars.githubusercontent.com/u/31636535",
-    about: "Marathonist | Backend Developer | DevOps Practitioner",
+    about: "Backend Developer | DevOps Practitioner",
     address: "Dhaka",
     dob: '12 April 2000',
     email: "samayun.m.chowdhury@gmail.com",
@@ -467,13 +467,18 @@ function displayTerminalContent(content) {
 
 function homeCommand() {
     const homeContent = [
-        'Samayun Miah Chowdhury - Profile<br>',
-        `Name:    ${profile.name}<br/>`,
-        `About:   ${profile.about}<br/>`,
-        `Email:   ${profile.email}<br/>`,
-        `GitHub:  ${profile.github}<br/>`,
-        `Resume:  ${profile.resumeDownloadLink}<br/>`,
-        'Type "help" for available commands'
+        `<div class="profile-container">
+            <img src="${profile.image}" alt="Samayun Chowdhury" class="profile-image">
+            <div class="profile-info">
+                <div class="profile-line">Samayun Miah Chowdhury - Profile</div>
+                <div class="profile-line">Name: ${profile.name}</div>
+                <div class="profile-line">About: ${profile.about}</div>
+                <div class="profile-line">Email: ${profile.email}</div>
+                <div class="profile-line">GitHub: ${profile.github}</div>
+                <div class="profile-line">Resume: <a href="${profile.resumeDownloadLink}" target="_blank" class="resume-link">Download Resume</a></div>
+      
+            </div>
+        </div>`
     ];
     displayTerminalContent(homeContent);
 }
