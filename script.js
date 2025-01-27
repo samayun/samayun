@@ -276,7 +276,7 @@ const skills = [
     }
 ];
 
-const work = [
+const workExperiences = [
     {
         id: 2,
         position: 'Sr. Software Engineer',
@@ -918,4 +918,704 @@ function showLockScreen() {
         easing: 'easeOutQuad'
     });
 }
+
+// Complete Window Management System
+let windows = [];
+let activeWindow = null;
+let dragType = null;
+const MIN_WIDTH = 300;
+const MIN_HEIGHT = 200;
+
+// Event Listeners
+document.addEventListener('mousedown', handleMouseDown);
+document.addEventListener('mousemove', handleMouseMove);
+document.addEventListener('mouseup', handleMouseUp);
+
+function handleMouseDown(e) {
+    const header = e.target.closest('.terminal-header');
+    const border = e.target.closest('.window-border');
+    
+    if (header) {
+        dragType = 'header';
+        activeWindow = header.closest('.terminal-window');
+        dragState = {
+            offsetX: e.clientX - activeWindow.offsetLeft,
+            offsetY: e.clientY - activeWindow.offsetTop
+        };
+        bringToFront(activeWindow);
+    }
+    
+    if (border) {
+        dragType = 'border';
+        activeWindow = border.closest('.terminal-window');
+        dragState = {
+            startX: e.clientX,
+            startY: e.clientY,
+            startWidth: activeWindow.offsetWidth,
+            startHeight: activeWindow.offsetHeight,
+            direction: border.dataset.direction
+        };
+        bringToFront(activeWindow);
+    }
+}
+
+function handleMouseMove(e) {
+    if (!activeWindow) return;
+    
+    if (dragType === 'header') {
+        activeWindow.style.left = `${e.clientX - dragState.offsetX}px`;
+        activeWindow.style.top = `${e.clientY - dragState.offsetY}px`;
+    }
+    
+    if (dragType === 'border') {
+        const deltaX = e.clientX - dragState.startX;
+        const deltaY = e.clientY - dragState.startY;
+        
+        switch(dragState.direction) {
+            case 'e':
+                activeWindow.style.width = `${Math.max(MIN_WIDTH, dragState.startWidth + deltaX)}px`;
+                break;
+            case 's':
+                activeWindow.style.height = `${Math.max(MIN_HEIGHT, dragState.startHeight + deltaY)}px`;
+                break;
+            case 'se':
+                activeWindow.style.width = `${Math.max(MIN_WIDTH, dragState.startWidth + deltaX)}px`;
+                activeWindow.style.height = `${Math.max(MIN_HEIGHT, dragState.startHeight + deltaY)}px`;
+                break;
+        }
+    }
+}
+
+function handleMouseUp() {
+    dragType = null;
+    activeWindow = null;
+}
+
+// Enhanced Minimize
+function minimizeWindow(terminal) {
+    const clone = terminal.cloneNode(true);
+    clone.classList.add('minimizing');
+    
+    const windowState = {
+        element: clone,
+        position: { 
+            x: terminal.offsetLeft, 
+            y: terminal.offsetTop,
+            width: terminal.offsetWidth,
+            height: terminal.offsetHeight
+        }
+    };
+    
+    windows.push(windowState);
+    
+    anime({
+        targets: clone,
+        scale: 0.2,
+        translateY: 100,
+        opacity: 0,
+        duration: 300,
+        easing: 'easeInQuad',
+        complete: () => {
+            document.body.removeChild(clone);
+            addToDock(windowState);
+        }
+    });
+}
+
+// Enhanced Maximize
+function toggleMaximize(terminal) {
+    const windowState = windows.find(w => w.element === terminal);
+    if (!windowState) return;
+    
+    if (windowState.isMaximized) {
+        // Restore to initial size/position
+        terminal.style.width = `${windowState.position.width}px`;
+        terminal.style.height = `${windowState.position.height}px`;
+        terminal.style.left = `${windowState.position.x}px`;
+        terminal.style.top = `${windowState.position.y}px`;
+        terminal.style.transform = 'none';
+    } else {
+        // Maximize to full screen
+        windowState.position = {
+            x: terminal.offsetLeft,
+            y: terminal.offsetTop,
+            width: terminal.offsetWidth,
+            height: terminal.offsetHeight
+        };
+        
+        terminal.style.width = '100vw';
+        terminal.style.height = '100vh';
+        terminal.style.left = '0';
+        terminal.style.top = '0';
+        terminal.style.transform = 'none';
+    }
+    
+    windowState.isMaximized = !windowState.isMaximized;
+    terminal.classList.toggle('maximized', windowState.isMaximized);
+}
+
+// Add window initialization logic
+function createTerminalWindow() {
+    const terminal = document.createElement('div');
+    terminal.className = 'terminal-window';
+    
+    // Set initial size and position
+    terminal.style.width = '800px';
+    terminal.style.height = '500px';
+    terminal.style.left = '50%';
+    terminal.style.top = '50%';
+    terminal.style.transform = 'translate(-50%, -50%)';
+    
+    // Store window state
+    windows.push({
+        element: terminal,
+        position: {
+            x: window.innerWidth/2 - 400, // 800px width / 2
+            y: window.innerHeight/2 - 250, // 500px height / 2
+            width: 800,
+            height: 500
+        },
+        isMaximized: false
+    });
+    
+    document.body.appendChild(terminal);
+    initWindow(terminal);
+}
+
+// Window state management
+let windowStates = new Map();
+let minimizedWindows = [];
+let currentMaximizeState = 'none'; // none, full, left, right
+
+function toggleMaximize(event) {
+    const terminal = document.querySelector('.terminal-window');
+    const currentState = windowStates.get(terminal) || {
+        width: terminal.style.width,
+        height: terminal.style.height,
+        left: terminal.style.left,
+        top: terminal.style.top
+    };
+
+    // Detect double click vs single click
+    if (event.detail === 2) {
+        // Double click - toggle full screen
+        handleFullScreenMaximize(terminal, currentState);
+    } else {
+        // Single click - cycle through states
+        handleSingleClickMaximize(terminal, currentState);
+    }
+}
+
+function handleFullScreenMaximize(terminal, currentState) {
+    if (currentMaximizeState === 'full') {
+        // Restore
+        restoreWindow(terminal, currentState);
+        currentMaximizeState = 'none';
+    } else {
+        // Full screen maximize
+        windowStates.set(terminal, {
+            width: terminal.style.width,
+            height: terminal.style.height,
+            left: terminal.style.left,
+            top: terminal.style.top
+        });
+        
+        terminal.style.width = '100vw';
+        terminal.style.height = '100vh';
+        terminal.style.left = '0';
+        terminal.style.top = '0';
+        terminal.style.borderRadius = '0';
+        currentMaximizeState = 'full';
+    }
+}
+
+function handleSingleClickMaximize(terminal, currentState) {
+    const halfWidth = window.innerWidth / 2;
+    
+    switch (currentMaximizeState) {
+        case 'none':
+            // Snap to right
+            windowStates.set(terminal, currentState);
+            terminal.style.width = `${halfWidth}px`;
+            terminal.style.height = '100vh';
+            terminal.style.left = `${halfWidth}px`;
+            terminal.style.top = '0';
+            currentMaximizeState = 'right';
+            break;
+            
+        case 'right':
+            // Snap to left
+            terminal.style.width = `${halfWidth}px`;
+            terminal.style.height = '100vh';
+            terminal.style.left = '0';
+            terminal.style.top = '0';
+            currentMaximizeState = 'left';
+            break;
+            
+        case 'left':
+            // Restore
+            restoreWindow(terminal, windowStates.get(terminal));
+            currentMaximizeState = 'none';
+            break;
+            
+        case 'full':
+            // Restore
+            restoreWindow(terminal, windowStates.get(terminal));
+            currentMaximizeState = 'none';
+            break;
+    }
+}
+
+function restoreWindow(terminal, savedState) {
+    Object.assign(terminal.style, savedState);
+    windowStates.delete(terminal);
+}
+
+function minimizeWindow() {
+    const terminal = document.querySelector('.terminal-window');
+    const minimizedState = {
+        id: Date.now(),
+        content: terminal.innerHTML,
+        state: windowStates.get(terminal) || {
+            width: terminal.style.width,
+            height: terminal.style.height,
+            left: terminal.style.left,
+            top: terminal.style.top
+        }
+    };
+    
+    minimizedWindows.push(minimizedState);
+    addMinimizedThumbnail(minimizedState.id);
+    
+    anime({
+        targets: terminal,
+        scale: [1, 0.2],
+        opacity: [1, 0],
+        duration: 300,
+        easing: 'easeOutQuad',
+        complete: () => {
+            terminal.style.display = 'none';
+        }
+    });
+}
+
+function addMinimizedThumbnail(id) {
+    const dock = document.querySelector('.dock');
+    const thumbnail = document.createElement('div');
+    thumbnail.className = 'dock-item minimized-window';
+    thumbnail.dataset.windowId = id;
+    thumbnail.innerHTML = '📁';
+    
+    thumbnail.addEventListener('click', () => {
+        restoreMinimizedWindow(id);
+        thumbnail.remove();
+    });
+    
+    dock.appendChild(thumbnail);
+}
+
+function restoreMinimizedWindow(id) {
+    const windowIndex = minimizedWindows.findIndex(w => w.id === id);
+    if (windowIndex === -1) return;
+    
+    const minimizedWindow = minimizedWindows[windowIndex];
+    const terminal = document.querySelector('.terminal-window');
+    
+    terminal.innerHTML = minimizedWindow.content;
+    Object.assign(terminal.style, minimizedWindow.state);
+    terminal.style.display = 'block';
+    
+    anime({
+        targets: terminal,
+        scale: [0.2, 1],
+        opacity: [0, 1],
+        duration: 300,
+        easing: 'easeOutQuad'
+    });
+    
+    minimizedWindows.splice(windowIndex, 1);
+}
+
+// Event listeners
+document.querySelector('.terminal-header').addEventListener('dblclick', toggleMaximize);
+document.querySelector('.terminal-controls span:nth-child(3)').addEventListener('click', toggleMaximize);
+document.querySelector('.terminal-controls span:nth-child(2)').addEventListener('click', minimizeWindow);
+
+// Window resize handling with boundary constraints
+function initializeWindowResize() {
+    const terminal = document.querySelector('.terminal-window');
+    
+    // Create resize handles if they don't exist
+    if (!terminal.querySelector('.resize-handle')) {
+        const directions = ['n', 'e', 's', 'w', 'ne', 'se', 'sw', 'nw'];
+        directions.forEach(dir => {
+            const handle = document.createElement('div');
+            handle.className = `resize-handle resize-${dir}`;
+            terminal.appendChild(handle);
+        });
+    }
+
+    let isResizing = false;
+    let currentDirection = '';
+    let startX, startY, startWidth, startHeight, startLeft, startTop;
+
+    const MIN_WIDTH = 400;
+    const MIN_HEIGHT = 300;
+    const PADDING = 10; // Padding from viewport edges
+
+    function getMaxDimensions() {
+        return {
+            maxWidth: window.innerWidth - PADDING * 2,
+            maxHeight: window.innerHeight - PADDING * 2
+        };
+    }
+
+    function constrainDimensions(width, height, left, top) {
+        const { maxWidth, maxHeight } = getMaxDimensions();
+        
+        // Constrain size
+        width = Math.max(MIN_WIDTH, Math.min(width, maxWidth));
+        height = Math.max(MIN_HEIGHT, Math.min(height, maxHeight));
+        
+        // Constrain position
+        left = Math.max(PADDING, Math.min(left, window.innerWidth - width - PADDING));
+        top = Math.max(PADDING, Math.min(top, window.innerHeight - height - PADDING));
+        
+        return { width, height, left, top };
+    }
+
+    function startResize(e) {
+        if (!e.target.classList.contains('resize-handle')) return;
+        
+        isResizing = true;
+        currentDirection = e.target.className.split('resize-')[1];
+        
+        const rect = terminal.getBoundingClientRect();
+        startX = e.clientX;
+        startY = e.clientY;
+        startWidth = rect.width;
+        startHeight = rect.height;
+        startLeft = rect.left;
+        startTop = rect.top;
+        
+        terminal.classList.add('resizing');
+        document.addEventListener('mousemove', resize);
+        document.addEventListener('mouseup', stopResize);
+        e.preventDefault();
+    }
+
+    function resize(e) {
+        if (!isResizing) return;
+
+        let newWidth = startWidth;
+        let newHeight = startHeight;
+        let newLeft = startLeft;
+        let newTop = startTop;
+
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+
+        // Handle different resize directions
+        if (currentDirection.includes('e')) newWidth = startWidth + dx;
+        if (currentDirection.includes('w')) {
+            newWidth = startWidth - dx;
+            newLeft = startLeft + dx;
+        }
+        if (currentDirection.includes('s')) newHeight = startHeight + dy;
+        if (currentDirection.includes('n')) {
+            newHeight = startHeight - dy;
+            newTop = startTop + dy;
+        }
+
+        // Apply constraints
+        const constrained = constrainDimensions(newWidth, newHeight, newLeft, newTop);
+        
+        // Apply new dimensions and position
+        terminal.style.width = `${constrained.width}px`;
+        terminal.style.height = `${constrained.height}px`;
+        terminal.style.left = `${constrained.left}px`;
+        terminal.style.top = `${constrained.top}px`;
+    }
+
+    function stopResize() {
+        if (!isResizing) return;
+        
+        isResizing = false;
+        terminal.classList.remove('resizing');
+        document.removeEventListener('mousemove', resize);
+        document.removeEventListener('mouseup', stopResize);
+    }
+
+    // Add event listeners
+    terminal.addEventListener('mousedown', startResize);
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        const rect = terminal.getBoundingClientRect();
+        const constrained = constrainDimensions(
+            rect.width,
+            rect.height,
+            rect.left,
+            rect.top
+        );
+        
+        terminal.style.width = `${constrained.width}px`;
+        terminal.style.height = `${constrained.height}px`;
+        terminal.style.left = `${constrained.left}px`;
+        terminal.style.top = `${constrained.top}px`;
+    });
+}
+
+// Initialize resize functionality
+document.addEventListener('DOMContentLoaded', initializeWindowResize);
+
+// Window management states and theme
+let currentTheme = 'light';
+let windowState = 'normal';
+
+function initializeWindowControls() {
+    const terminal = document.querySelector('.terminal-window');
+    const greenButton = document.querySelector('.terminal-controls span:nth-child(3)');
+    
+    // Create simplified window menu
+    const menuTemplate = `
+        <div class="window-menu">
+            <div class="menu-item" data-action="full-screen">
+                <div class="menu-icon">⛶</div>
+                <span>Enter Full Screen</span>
+            </div>
+            <div class="menu-item" data-action="left-half">
+                <div class="menu-icon">◧</div>
+                <span>Tile Window to Left of Screen</span>
+            </div>
+            <div class="menu-item" data-action="right-half">
+                <div class="menu-icon">◨</div>
+                <span>Tile Window to Right of Screen</span>
+            </div>
+        </div>
+    `;
+    
+    const menu = document.createElement('div');
+    menu.innerHTML = menuTemplate;
+    menu.className = 'window-menu-container';
+    terminal.appendChild(menu);
+    
+    // Show menu on hover over green button
+    greenButton.addEventListener('mouseenter', () => {
+        menu.classList.add('show');
+    });
+    
+    menu.addEventListener('mouseleave', () => {
+        menu.classList.remove('show');
+    });
+    
+    // Handle menu item clicks
+    menu.addEventListener('click', (e) => {
+        const menuItem = e.target.closest('.menu-item');
+        if (!menuItem) return;
+        
+        const action = menuItem.dataset.action;
+        handleWindowAction(action, terminal);
+        menu.classList.remove('show');
+    });
+}
+
+function handleWindowAction(action, terminal) {
+    const { innerWidth: w, innerHeight: h } = window;
+    
+    const states = {
+        'full-screen': {
+            width: '100vw',
+            height: '100vh',
+            left: '0',
+            top: '0',
+            borderRadius: '0'
+        },
+        'left-half': {
+            width: '50vw',
+            height: '100vh',
+            left: '0',
+            top: '0',
+            borderRadius: '0 10px 10px 0'
+        },
+        'right-half': {
+            width: '50vw',
+            height: '100vh',
+            left: '50vw',
+            top: '0',
+            borderRadius: '10px 0 0 10px'
+        }
+    };
+    
+    const newState = states[action];
+    if (!newState) return;
+    
+    // Save current state before applying new one
+    if (!terminal.dataset.previousState) {
+        terminal.dataset.previousState = JSON.stringify({
+            width: terminal.style.width,
+            height: terminal.style.height,
+            left: terminal.style.left,
+            top: terminal.style.top,
+            borderRadius: terminal.style.borderRadius
+        });
+    }
+    
+    // Apply new state with animation
+    Object.assign(terminal.style, newState);
+    terminal.setAttribute('data-state', action);
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', () => {
+    initializeWindowControls();
+    initializeWindowResize();
+});
+
+// Add menubar implementation
+function initializeMenuBar() {
+    const menuBar = document.createElement('div');
+    menuBar.className = 'menu-bar';
+    menuBar.innerHTML = `
+        <div class="menu-bar-left">
+            <div class="apple-menu">
+                <svg class="apple-logo" viewBox="0 0 16 16">
+                    <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/>
+                </svg>
+            </div>
+            <div class="app-name">Portfolio</div>
+        </div>
+        <div class="menu-bar-center">
+            <div class="menu-item" id="menu-trigger">Menu</div>
+        </div>
+        <div class="menu-bar-right">
+            <div class="theme-switcher">
+                <span class="theme-icon light">☀️</span>
+                <span class="theme-icon dark">🌙</span>
+            </div>
+        </div>
+    `;
+    
+    document.body.insertBefore(menuBar, document.body.firstChild);
+    
+    // Initialize dropdown menu
+    const menuTrigger = document.getElementById('menu-trigger');
+    const menuDropdown = document.createElement('div');
+    menuDropdown.className = 'menu-dropdown';
+    menuDropdown.innerHTML = `
+        <div class="menu-item" data-shortcut="⌘A">Item A</div>
+        <div class="menu-item" data-shortcut="⌘B">Item B</div>
+        <div class="menu-item" data-shortcut="⌘C">Item C</div>
+        <div class="menu-separator"></div>
+        <div class="menu-item submenu">
+            Submenu A
+            <span class="submenu-arrow">›</span>
+        </div>
+        <div class="menu-item submenu">
+            Submenu B
+            <span class="submenu-arrow">›</span>
+        </div>
+    `;
+    menuTrigger.appendChild(menuDropdown);
+    
+    // Theme switching
+    const themeSwitcher = document.querySelector('.theme-switcher');
+    themeSwitcher.addEventListener('click', () => {
+        const currentTheme = document.body.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        document.body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+    
+    // Menu interactions
+    menuTrigger.addEventListener('mouseenter', () => {
+        menuDropdown.classList.add('show');
+    });
+    
+    menuTrigger.addEventListener('mouseleave', (e) => {
+        if (!menuDropdown.contains(e.relatedTarget)) {
+            menuDropdown.classList.remove('show');
+        }
+    });
+    
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.setAttribute('data-theme', savedTheme);
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', () => {
+    initializeMenuBar();
+    initializeWindowControls();
+});
+
+// Dock animations and functionality
+function initializeDock() {
+    const dock = document.querySelector('.dock');
+    const dockItems = dock.querySelectorAll('.dock-item');
+    
+    // Add data-name attributes for tooltips
+    const names = ['Home', 'Projects', 'Skills', 'Blog', 'Contact'];
+    dockItems.forEach((item, index) => {
+        item.setAttribute('data-name', names[index]);
+    });
+    
+    // Mouse move animation
+    dock.addEventListener('mousemove', (e) => {
+        const mouseX = e.clientX;
+        
+        dockItems.forEach(item => {
+            const rect = item.getBoundingClientRect();
+            const itemX = rect.left + rect.width / 2;
+            const distance = Math.abs(mouseX - itemX);
+            const scale = Math.max(1, 1.5 - distance / 100);
+            
+            item.style.transform = `scale(${scale})`;
+            
+            // Add vertical movement
+            if (scale > 1.2) {
+                const lift = Math.min((scale - 1) * 20, 10);
+                item.style.transform += ` translateY(-${lift}px)`;
+            }
+        });
+    });
+    
+    // Reset animations when mouse leaves dock
+    dock.addEventListener('mouseleave', () => {
+        dockItems.forEach(item => {
+            item.style.transform = '';
+        });
+    });
+    
+    // Click handling and active states
+    dockItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // Remove active state from all items
+            dockItems.forEach(i => i.classList.remove('active'));
+            // Add active state to clicked item
+            item.classList.add('active');
+            
+            // Add bounce animation
+            item.style.animation = 'dockBounce 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+            item.addEventListener('animationend', () => {
+                item.style.animation = '';
+            }, { once: true });
+        });
+    });
+}
+
+// Add bounce animation keyframes
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes dockBounce {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2) translateY(-10px); }
+    }
+`;
+document.head.appendChild(style);
+
+// Initialize dock on load
+document.addEventListener('DOMContentLoaded', () => {
+    initializeDock();
+});
 

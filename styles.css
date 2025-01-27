@@ -1,9 +1,46 @@
 :root {
     --primary-green: #2ecc71;
-    --terminal-bg: rgba(0, 0, 0, 0.7);
+    --terminal-bg: rgba(255, 255, 255, 0.85);
+    --terminal-text: #2c3e50;
+    --terminal-header: rgba(255, 255, 255, 0.95);
+    --terminal-border: rgba(255, 255, 255, 0.2);
+    --terminal-shadow: rgba(0, 0, 0, 0.1);
     --base-font-size: 16px;
+    
+    --terminal-bg-light: rgba(255, 255, 255, 0.85);
+    --terminal-text-light: #2c3e50;
+    --terminal-border-light: rgba(255, 255, 255, 0.2);
+    
+    --terminal-bg-dark: rgba(28, 28, 28, 0.95);
+    --terminal-text-dark: #ecf0f1;
+    --terminal-border-dark: rgba(255, 255, 255, 0.1);
+
+    --menu-bg-light: rgba(255, 255, 255, 0.8);
+    --menu-bg-dark: rgba(28, 28, 28, 0.8);
+    --menu-text-light: #333;
+    --menu-text-dark: #fff;
+    --menu-hover-light: rgba(0, 0, 0, 0.1);
+    --menu-hover-dark: rgba(255, 255, 255, 0.1);
 }
 
+/* Theme Application */
+[data-theme="light"] {
+    --terminal-bg: var(--terminal-bg-light);
+    --terminal-text: var(--terminal-text-light);
+    --terminal-border: var(--terminal-border-light);
+    --menu-bg: var(--menu-bg-light);
+    --menu-text: var(--menu-text-light);
+    --menu-hover: var(--menu-hover-light);
+}
+
+[data-theme="dark"] {
+    --terminal-bg: var(--terminal-bg-dark);
+    --terminal-text: var(--terminal-text-dark);
+    --terminal-border: var(--terminal-border-dark);
+    --menu-bg: var(--menu-bg-dark);
+    --menu-text: var(--menu-text-dark);
+    --menu-hover: var(--menu-hover-dark);
+}
 
 body {
     background: url('https://consomac.fr/images/news/macos-sequoia-forest-wallpaper.jpg');
@@ -15,6 +52,7 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    padding-top: 28px;
 }
 
 /* Animated Dock */
@@ -23,28 +61,26 @@ body {
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: auto;
-    max-width: 90%;
-    flex-shrink: 0;
     display: flex;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
+    gap: 10px;
+    background: rgba(40,40,40,0.8);
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px;
+    border-radius: 12px;
+    z-index: 1000;
 }
 
 .dock-item {
-    width: 50px;
-    height: 50px;
-    margin: 0 8px;
-    transition: 0.2s all ease-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    width: 40px;
+    height: 40px;
+    background: #333;
+    border-radius: 8px;
     cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.dock-item:hover {
+    transform: translateY(-5px) scale(1.1);
 }
 
 .dock-item i {
@@ -88,34 +124,51 @@ body {
 
 /* Terminal Window */
 .terminal-window {
-    flex: 1;
-    height: 80vh;
-    min-height: 80vh;
-    max-height: 80vh;
-    width: 90vw;
-    max-width: 1200px;
-    margin: 20px auto;
-    resize: none;
+    position: fixed;
+    min-width: 400px;
+    min-height: 300px;
     background: var(--terminal-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--terminal-border);
     border-radius: 12px;
+    box-shadow: 0 10px 30px var(--terminal-shadow);
+    transition: all 0.3s ease;
     overflow: hidden;
-    color: #2ecc71;
-    transition: transform 0.3s ease-in-out;
-    transform-origin: top left;
+    color: var(--terminal-text);
+    margin-top: 10px;
 }
 
 .terminal-header {
-    padding: 12px;
-    background: rgba(46, 204, 113, 0.1);
+    background: var(--terminal-header);
+    padding: 8px;
+    cursor: move;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--terminal-border);
+}
+
+.terminal-controls {
     display: flex;
     gap: 8px;
+    margin-bottom: 8px;
 }
 
 .terminal-controls span {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    display: inline-block;
+    margin-right: 8px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.terminal-controls span:nth-child(1) { background: #FF5F57; }
+.terminal-controls span:nth-child(2) { background: #FEBC2E; }
+.terminal-controls span:nth-child(3) { background: #28C940; }
+
+.terminal-controls span.maximized {
+    opacity: 0.7;
+    transform: scale(0.9);
 }
 
 .terminal-body {
@@ -124,6 +177,8 @@ body {
     font-family: 'Menlo', monospace;
     overflow: auto;
     height: calc(100% - 40px);
+    color: var(--terminal-text);
+    background: transparent;
     /* white-space: pre-wrap; */
 }
 
@@ -1089,15 +1144,15 @@ body {
 /* Minimize animation styles */
 .minimized-window {
     position: relative;
-    animation: dockBounce 1.2s infinite;
+    animation: bounce 1s infinite;
 }
 
-@keyframes dockBounce {
+@keyframes bounce {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-5px); }
 }
 
-/* Restore button styling */
+/* Dock Indicator for Minimized Windows */
 .minimized-window::after {
     content: '';
     position: absolute;
@@ -1105,7 +1160,7 @@ body {
     left: 50%;
     width: 4px;
     height: 4px;
-    background: rgba(255,255,255,0.3);
+    background: var(--primary-green);
     border-radius: 50%;
     transform: translateX(-50%);
 }
@@ -1159,6 +1214,9 @@ body {
     color: white;
     z-index: 10000;
     cursor: pointer;
+    background-image: url('https://consomac.fr/images/news/macos-sequoia-forest-wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .sequoia-lock-content {
@@ -1194,8 +1252,9 @@ body {
     font-size: 1.8rem;
     font-weight: 500;
     color: #fff;
-    text-transform: capitalize;
+    text-transform: uppercase;
     letter-spacing: -0.5px;
+    margin-top: 2.5rem;
 }
 
 .time-container {
@@ -1258,5 +1317,360 @@ body {
     .lock-screen .date {
         font-size: 1.2rem;
     }
+}
+
+/* Window Borders */
+.window-border {
+    position: absolute;
+    background: transparent;
+    z-index: 1;
+}
+
+.window-border.right {
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    cursor: e-resize;
+}
+
+.window-border.bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    cursor: s-resize;
+}
+
+.window-border.corner {
+    width: 8px;
+    height: 8px;
+    right: 0;
+    bottom: 0;
+    cursor: nwse-resize;
+}
+
+/* Minimize Animation */
+@keyframes minimizeToDock {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0.2) translateY(100px); opacity: 0; }
+}
+
+.minimizing {
+    animation: minimizeToDock 0.3s ease forwards;
+}
+
+/* Maximize Transition */
+.terminal-window {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Maximized State */
+.terminal-window[data-state="full-screen"] {
+    border-radius: 0;
+}
+
+.terminal-window[data-state="left-half"] {
+    border-radius: 0 10px 10px 0;
+}
+
+.terminal-window[data-state="right-half"] {
+    border-radius: 10px 0 0 10px;
+}
+
+/* Resize handles */
+.resize-handle {
+    position: absolute;
+    background: transparent;
+    z-index: 1000;
+}
+
+.resize-n, .resize-s {
+    left: 0;
+    right: 0;
+    height: 6px;
+    cursor: ns-resize;
+}
+
+.resize-e, .resize-w {
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    cursor: ew-resize;
+}
+
+.resize-n { top: 0; }
+.resize-s { bottom: 0; }
+.resize-e { right: 0; }
+.resize-w { left: 0; }
+
+.resize-nw, .resize-ne, .resize-sw, .resize-se {
+    width: 10px;
+    height: 10px;
+}
+
+.resize-nw { top: 0; left: 0; cursor: nw-resize; }
+.resize-ne { top: 0; right: 0; cursor: ne-resize; }
+.resize-sw { bottom: 0; left: 0; cursor: sw-resize; }
+.resize-se { bottom: 0; right: 0; cursor: se-resize; }
+
+/* Prevent window overflow */
+.terminal-window {
+    max-width: calc(100vw - 20px);
+    max-height: calc(100vh - 20px);
+    overflow: hidden;
+}
+
+/* Ensure content stays within bounds */
+.terminal-body {
+    overflow: auto;
+    max-height: calc(100% - 40px);
+}
+
+/* Prevent body overflow */
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Smooth resize transitions */
+.terminal-window:not(.resizing) {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Resize handle hover effects */
+.resize-handle:hover {
+    background: rgba(46, 204, 113, 0.15);
+}
+
+/* Resize State */
+.terminal-window.resizing {
+    transition: none;
+    user-select: none;
+}
+
+/* Window snap indicators */
+.terminal-window::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, 
+        rgba(46, 204, 113, 0.5),
+        rgba(46, 204, 113, 0)
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.terminal-window.left-snap::before,
+.terminal-window.right-snap::before {
+    opacity: 1;
+}
+
+/* Window Menu Styles */
+.window-menu-container {
+    position: absolute;
+    top: 30px;
+    right: 5px;
+    z-index: 1000;
+    display: none;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    padding: 5px 0;
+    min-width: 280px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.window-menu-container.show {
+    display: block;
+    animation: menuFadeIn 0.1s ease;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: #333;
+    font-size: 13px;
+}
+
+.menu-item:hover {
+    background-color: #0064D1;
+    color: white;
+}
+
+.menu-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+/* Window States */
+.terminal-window {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.terminal-window[data-state="full-screen"] {
+    border-radius: 0;
+}
+
+.terminal-window[data-state="left-half"] {
+    border-radius: 0 10px 10px 0;
+}
+
+.terminal-window[data-state="right-half"] {
+    border-radius: 10px 0 0 10px;
+}
+
+/* Animations */
+@keyframes menuFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Green Button Hover State */
+.terminal-controls span:nth-child(3):hover {
+    filter: brightness(1.1);
+}
+
+/* Menu Item Icons */
+.menu-item[data-action="full-screen"] .menu-icon {
+    font-size: 18px;
+}
+
+.menu-item[data-action="left-half"] .menu-icon,
+.menu-item[data-action="right-half"] .menu-icon {
+    font-size: 16px;
+}
+
+/* Menu Bar Styles */
+.menu-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    background: var(--menu-bg);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    z-index: 9999;
+    font-size: 13px;
+}
+
+/* Menu Sections */
+.menu-bar-left,
+.menu-bar-center,
+.menu-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--menu-text);
+}
+
+/* Apple Logo */
+.apple-logo {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+/* Menu Items */
+.menu-item {
+    padding: 0 10px;
+    cursor: pointer;
+    position: relative;
+    height: 28px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-item:hover {
+    background: var(--menu-hover);
+}
+
+/* Theme Switcher */
+.theme-switcher {
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.theme-icon {
+    font-size: 14px;
+}
+
+[data-theme="light"] .theme-icon.dark,
+[data-theme="dark"] .theme-icon.light {
+    opacity: 0.3;
+}
+
+/* Dropdown Menu */
+.menu-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--menu-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 6px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    min-width: 200px;
+    display: none;
+    margin-top: 5px;
+}
+
+.menu-dropdown.show {
+    display: block;
+    animation: menuFadeIn 0.1s ease;
+}
+
+.menu-dropdown .menu-item {
+    padding: 5px 15px;
+    display: flex;
+    justify-content: space-between;
+    height: 25px;
+}
+
+.menu-separator {
+    height: 1px;
+    background: var(--menu-hover);
+    margin: 5px 0;
+}
+
+.submenu-arrow {
+    margin-left: 10px;
+}
+
+/* Adjust main content for menubar */
+body {
+    padding-top: 28px;
+}
+
+.terminal-window {
+    margin-top: 10px;
 }
 
