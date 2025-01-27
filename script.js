@@ -284,7 +284,7 @@ const workExperiences = [
         start: '23 September 2024',
         end: 'Present',
         website: 'https://redq.io',
-        responsibility: [
+        responsibilities: [
             `Exploring Elastic Search,Kafka architectures....`,
             `TinyBird: Realtime Analytics`,
             `Sequin: Change Data Capture`,
@@ -298,7 +298,7 @@ const workExperiences = [
         start: '26 June 2021',
         end: '31 July 2023',
         website: 'https://sayburgh.com',
-        responsibility: [
+        responsibilities: [
             `Refactored & optimized some expensive db queries for SomoyNews API`,
             `Developed a Video On Demand (VOD) applicatio. Estimating at least 100K+ requests per day`,
             `Developed a Human Resource Management Saas product`,
@@ -448,15 +448,29 @@ const education = [
     },
 ];
 
-// Add to top of script.js
 const developerQuotes = [
     "Any fool can write code that a computer can understand. Good programmers write code that humans can understand. – Martin Fowler",
     "First, solve the problem. Then, write the code. – John Johnson",
     "Simplicity is the soul of efficiency. – Austin Freeman",
     "Make it work, make it right, make it fast. – Kent Beck",
     "The only way to learn a new programming language is by writing programs in it. – Dennis Ritchie",
-    "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it. – Brian Kernighan"
+    "Programs must be written for people to read, and only incidentally for machines to execute. – Harold Abelson",
+    "Walking on water and developing software from a specification are easy if both are frozen. – Edward V. Berard",
+    "It’s not a bug – it’s an undocumented feature. – Anonymous",
+    "There are two ways to write error-free programs; only the third one works. – Alan Perlis",
+    "Before software can be reusable, it first has to be usable. – Ralph Johnson",
+    "If debugging is the process of removing software bugs, then programming must be the process of putting them in. – Edsger Dijkstra",
+    "Code is like humor. When you have to explain it, it’s bad. – Cory House",
+    "Premature optimization is the root of all evil. – Donald Knuth",
+    "The best way to predict the future is to implement it. – Alan Kay",
+    "Good code is its own best documentation. – Steve McConnell",
+    "A language that doesn’t affect the way you think about programming is not worth knowing. – Alan Perlis",
+    "Measuring programming progress by lines of code is like measuring aircraft building progress by weight. – Bill Gates",
+    "Any sufficiently advanced bug is indistinguishable from a feature. – Rich Kulawiec",
+    "Software and cathedrals are much the same – first we build them, then we pray. – Anonymous",
+    "Truth can only be found in one place: the code. – Robert C. Martin"
 ];
+
 
 function displayTerminalContent(content) {
     const terminal = document.getElementById('terminal-output');
@@ -475,16 +489,41 @@ function displayTerminalContent(content) {
     });
 }
 
+function worksCommand() {
+    const workContent = workExperiences.map((work, index) => `
+        <div class="works-card">
+            <div class="work-icon">${index === 0 ? '🎓' : index === 1 ? '📚' : '🏫'}</div>
+            <div class="work-content">
+                <div class="work-meta">
+                    <span class="work-position">${work.position}</span>
+                    <span class="work-duration">${work.start} - ${work.end || 'Present'}</span>
+                </div>
+                <p class="edu-institute">${work.company}</p>
+                <ul>
+                   
+                </ul>
+            </div>
+            ${index < education.length - 1 ? '<div class="timeline-connector"></div>' : ''}
+        </div>
+    `).join('');
+    displayTerminalContent(`<div class="edu-timeline">${workContent}</div>`);
+}
+
 function homeCommand() {
     const homeContent = [
         `<div class="profile-container">
             <img src="${profile.image}" alt="Samayun Chowdhury" class="profile-image">
             <div class="profile-info">
-                <div class="profile-line">Samayun Miah Chowdhury - Profile</div>
-                <div class="profile-line">Name: ${profile.name}</div>
-                <div class="profile-line">About: ${profile.about}</div>
-                <div class="profile-line">Email: ${profile.email}</div>
-                <div class="profile-line">GitHub: ${profile.github}</div>
+                <div class="profile-line">${profile.name}</div>
+                <div class="profile-line">${profile.about}</div>
+                <div class="profile-line">Email: <a href="mailto:${profile.email}" target="_blank">${profile.email}</a>  </div>
+                <div class="profile-line">GitHub: 
+                   <a href="${profile.github}" target="_blank"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
+                        <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.66-.22.66-.48 0-.24-.01-.87-.01-1.71-2.78.6-3.37-1.34-3.37-1.34-.45-1.15-1.11-1.46-1.11-1.46-.91-.63.07-.62.07-.62 1.01.07 1.54 1.03 1.54 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.93 0-1.09.39-1.98 1.03-2.68-.1-.26-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03A9.56 9.56 0 0 1 12 6.4c.85.004 1.7.115 2.5.34 1.9-1.3 2.74-1.03 2.74-1.03.55 1.38.2 2.39.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.83-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86 0 1.34-.01 2.42-.01 2.74 0 .26.16.58.67.48C19.14 20.17 22 16.42 22 12c0-5.52-4.48-10-10-10z"/>
+                    </svg>
+                  </a> 
+                </div>
                 <div class="profile-line">Resume: <a href="${profile.resumeDownloadLink}" target="_blank" class="resume-link">Download Resume</a></div>
       
             </div>
@@ -609,6 +648,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // New dock items
     const docks = {
+        'works-dock': worksCommand,
         'skills-dock': skillsCommand,
         'education-dock': educationCommand,
         'projects-dock': projectsCommand
@@ -697,10 +737,10 @@ let currentSlide = {
 
 function initCarousel(type, totalSlides) {
     const dotsContainer = document.getElementById(`${type}-dots`);
-    dotsContainer.innerHTML = Array.from({length: totalSlides}, (_, i) => 
+    dotsContainer.innerHTML = Array.from({ length: totalSlides }, (_, i) =>
         `<span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}">${i + 1}</span>`
     ).join('');
-    
+
     // Add click handlers to dots
     document.querySelectorAll(`#${type}-dots .dot`).forEach(dot => {
         dot.addEventListener('click', () => {
@@ -724,9 +764,9 @@ function goToSlide(index, type) {
 function updateSlidePosition(type) {
     const carousel = document.getElementById(`${type}-carousel`);
     const slideWidth = carousel.offsetWidth; // Get full width of visible area
-    
+
     carousel.style.transform = `translateX(-${currentSlide[type] * slideWidth}px)`;
-    
+
     // Update dot indicators
     document.querySelectorAll(`#${type}-dots .dot`).forEach((dot, index) => {
         dot.classList.toggle('active', index === currentSlide[type]);
@@ -736,8 +776,8 @@ function updateSlidePosition(type) {
 // Add proper event listeners for arrows
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('carousel-arrow')) {
-        const type = e.target.classList.contains('prev') ? 
-            e.target.nextElementSibling.id.replace('-dots', '') : 
+        const type = e.target.classList.contains('prev') ?
+            e.target.nextElementSibling.id.replace('-dots', '') :
             e.target.previousElementSibling.id.replace('-dots', '');
         const direction = e.target.classList.contains('prev') ? -1 : 1;
         moveSlide(direction, type);
@@ -762,7 +802,7 @@ document.addEventListener('click', (e) => {
 });
 
 // Update minimize button handler
-document.querySelector('.terminal-controls span:nth-child(2)').addEventListener('click', function() {
+document.querySelector('.terminal-controls span:nth-child(2)').addEventListener('click', function () {
     showRandomQuote();
     setTimeout(minimizeWindow, 1000); // Minimize after 1 second
 });
@@ -776,9 +816,9 @@ function showRandomQuote() {
             <p class="quote-text">${randomQuote}</p>
         </div>
     `;
-    
+
     document.body.appendChild(quoteElement);
-    
+
     // Animation for floating quote
     anime({
         targets: quoteElement,
@@ -787,7 +827,7 @@ function showRandomQuote() {
         duration: 500,
         easing: 'easeOutQuad'
     });
-    
+
     // Remove quote after animation
     setTimeout(() => {
         anime({
@@ -804,16 +844,16 @@ function showRandomQuote() {
 function minimizeWindow() {
     const terminal = document.querySelector('.terminal-window');
     const dock = document.querySelector('.dock');
-    
+
     // Get positions
     const terminalRect = terminal.getBoundingClientRect();
     const dockRect = dock.getBoundingClientRect();
-    
+
     // Calculate animation values
     const scaleFactor = 0.2;
     const targetX = dockRect.left + (dockRect.width / 2) - (terminalRect.width * scaleFactor / 2);
     const targetY = dockRect.top - (terminalRect.height * scaleFactor);
-    
+
     anime({
         targets: terminal,
         scale: scaleFactor,
@@ -834,19 +874,19 @@ function addMinimizedThumbnail() {
     const thumbnail = document.createElement('div');
     thumbnail.className = 'dock-item minimized-window';
     thumbnail.innerHTML = '📁';
-    
+
     thumbnail.addEventListener('click', () => {
         restoreWindow();
         thumbnail.remove();
     });
-    
+
     dock.appendChild(thumbnail);
 }
 
 function restoreWindow() {
     const terminal = document.querySelector('.terminal-window');
     terminal.style.display = 'block';
-    
+
     anime({
         targets: terminal,
         scale: [0.2, 1],
@@ -865,7 +905,7 @@ document.querySelector('.terminal-controls span:nth-child(1)').addEventListener(
 
 function showLockScreen() {
     if (isTerminalClosed) return;
-    
+
     const terminal = document.querySelector('.terminal-window');
     terminal.style.opacity = '0';
 
@@ -909,7 +949,7 @@ function showLockScreen() {
 
     document.body.appendChild(lockScreen);
     isTerminalClosed = true;
-    
+
     // Animate lock screen entrance
     anime({
         targets: lockScreen,
@@ -934,7 +974,7 @@ document.addEventListener('mouseup', handleMouseUp);
 function handleMouseDown(e) {
     const header = e.target.closest('.terminal-header');
     const border = e.target.closest('.window-border');
-    
+
     if (header) {
         dragType = 'header';
         activeWindow = header.closest('.terminal-window');
@@ -944,7 +984,7 @@ function handleMouseDown(e) {
         };
         bringToFront(activeWindow);
     }
-    
+
     if (border) {
         dragType = 'border';
         activeWindow = border.closest('.terminal-window');
@@ -961,17 +1001,17 @@ function handleMouseDown(e) {
 
 function handleMouseMove(e) {
     if (!activeWindow) return;
-    
+
     if (dragType === 'header') {
         activeWindow.style.left = `${e.clientX - dragState.offsetX}px`;
         activeWindow.style.top = `${e.clientY - dragState.offsetY}px`;
     }
-    
+
     if (dragType === 'border') {
         const deltaX = e.clientX - dragState.startX;
         const deltaY = e.clientY - dragState.startY;
-        
-        switch(dragState.direction) {
+
+        switch (dragState.direction) {
             case 'e':
                 activeWindow.style.width = `${Math.max(MIN_WIDTH, dragState.startWidth + deltaX)}px`;
                 break;
@@ -995,19 +1035,19 @@ function handleMouseUp() {
 function minimizeWindow(terminal) {
     const clone = terminal.cloneNode(true);
     clone.classList.add('minimizing');
-    
+
     const windowState = {
         element: clone,
-        position: { 
-            x: terminal.offsetLeft, 
+        position: {
+            x: terminal.offsetLeft,
             y: terminal.offsetTop,
             width: terminal.offsetWidth,
             height: terminal.offsetHeight
         }
     };
-    
+
     windows.push(windowState);
-    
+
     anime({
         targets: clone,
         scale: 0.2,
@@ -1026,7 +1066,7 @@ function minimizeWindow(terminal) {
 function toggleMaximize(terminal) {
     const windowState = windows.find(w => w.element === terminal);
     if (!windowState) return;
-    
+
     if (windowState.isMaximized) {
         // Restore to initial size/position
         terminal.style.width = `${windowState.position.width}px`;
@@ -1042,14 +1082,14 @@ function toggleMaximize(terminal) {
             width: terminal.offsetWidth,
             height: terminal.offsetHeight
         };
-        
+
         terminal.style.width = '100vw';
         terminal.style.height = '100vh';
         terminal.style.left = '0';
         terminal.style.top = '0';
         terminal.style.transform = 'none';
     }
-    
+
     windowState.isMaximized = !windowState.isMaximized;
     terminal.classList.toggle('maximized', windowState.isMaximized);
 }
@@ -1058,26 +1098,26 @@ function toggleMaximize(terminal) {
 function createTerminalWindow() {
     const terminal = document.createElement('div');
     terminal.className = 'terminal-window';
-    
+
     // Set initial size and position
     terminal.style.width = '800px';
     terminal.style.height = '500px';
     terminal.style.left = '50%';
     terminal.style.top = '50%';
     terminal.style.transform = 'translate(-50%, -50%)';
-    
+
     // Store window state
     windows.push({
         element: terminal,
         position: {
-            x: window.innerWidth/2 - 400, // 800px width / 2
-            y: window.innerHeight/2 - 250, // 500px height / 2
+            x: window.innerWidth / 2 - 400, // 800px width / 2
+            y: window.innerHeight / 2 - 250, // 500px height / 2
             width: 800,
             height: 500
         },
         isMaximized: false
     });
-    
+
     document.body.appendChild(terminal);
     initWindow(terminal);
 }
@@ -1119,7 +1159,7 @@ function handleFullScreenMaximize(terminal, currentState) {
             left: terminal.style.left,
             top: terminal.style.top
         });
-        
+
         terminal.style.width = '100vw';
         terminal.style.height = '100vh';
         terminal.style.left = '0';
@@ -1131,7 +1171,7 @@ function handleFullScreenMaximize(terminal, currentState) {
 
 function handleSingleClickMaximize(terminal, currentState) {
     const halfWidth = window.innerWidth / 2;
-    
+
     switch (currentMaximizeState) {
         case 'none':
             // Snap to right
@@ -1142,7 +1182,7 @@ function handleSingleClickMaximize(terminal, currentState) {
             terminal.style.top = '0';
             currentMaximizeState = 'right';
             break;
-            
+
         case 'right':
             // Snap to left
             terminal.style.width = `${halfWidth}px`;
@@ -1151,13 +1191,13 @@ function handleSingleClickMaximize(terminal, currentState) {
             terminal.style.top = '0';
             currentMaximizeState = 'left';
             break;
-            
+
         case 'left':
             // Restore
             restoreWindow(terminal, windowStates.get(terminal));
             currentMaximizeState = 'none';
             break;
-            
+
         case 'full':
             // Restore
             restoreWindow(terminal, windowStates.get(terminal));
@@ -1183,10 +1223,10 @@ function minimizeWindow() {
             top: terminal.style.top
         }
     };
-    
+
     minimizedWindows.push(minimizedState);
     addMinimizedThumbnail(minimizedState.id);
-    
+
     anime({
         targets: terminal,
         scale: [1, 0.2],
@@ -1205,26 +1245,26 @@ function addMinimizedThumbnail(id) {
     thumbnail.className = 'dock-item minimized-window';
     thumbnail.dataset.windowId = id;
     thumbnail.innerHTML = '📁';
-    
+
     thumbnail.addEventListener('click', () => {
         restoreMinimizedWindow(id);
         thumbnail.remove();
     });
-    
+
     dock.appendChild(thumbnail);
 }
 
 function restoreMinimizedWindow(id) {
     const windowIndex = minimizedWindows.findIndex(w => w.id === id);
     if (windowIndex === -1) return;
-    
+
     const minimizedWindow = minimizedWindows[windowIndex];
     const terminal = document.querySelector('.terminal-window');
-    
+
     terminal.innerHTML = minimizedWindow.content;
     Object.assign(terminal.style, minimizedWindow.state);
     terminal.style.display = 'block';
-    
+
     anime({
         targets: terminal,
         scale: [0.2, 1],
@@ -1232,7 +1272,7 @@ function restoreMinimizedWindow(id) {
         duration: 300,
         easing: 'easeOutQuad'
     });
-    
+
     minimizedWindows.splice(windowIndex, 1);
 }
 
@@ -1244,7 +1284,7 @@ document.querySelector('.terminal-controls span:nth-child(2)').addEventListener(
 // Window resize handling with boundary constraints
 function initializeWindowResize() {
     const terminal = document.querySelector('.terminal-window');
-    
+
     // Create resize handles if they don't exist
     if (!terminal.querySelector('.resize-handle')) {
         const directions = ['n', 'e', 's', 'w', 'ne', 'se', 'sw', 'nw'];
@@ -1272,24 +1312,24 @@ function initializeWindowResize() {
 
     function constrainDimensions(width, height, left, top) {
         const { maxWidth, maxHeight } = getMaxDimensions();
-        
+
         // Constrain size
         width = Math.max(MIN_WIDTH, Math.min(width, maxWidth));
         height = Math.max(MIN_HEIGHT, Math.min(height, maxHeight));
-        
+
         // Constrain position
         left = Math.max(PADDING, Math.min(left, window.innerWidth - width - PADDING));
         top = Math.max(PADDING, Math.min(top, window.innerHeight - height - PADDING));
-        
+
         return { width, height, left, top };
     }
 
     function startResize(e) {
         if (!e.target.classList.contains('resize-handle')) return;
-        
+
         isResizing = true;
         currentDirection = e.target.className.split('resize-')[1];
-        
+
         const rect = terminal.getBoundingClientRect();
         startX = e.clientX;
         startY = e.clientY;
@@ -1297,7 +1337,7 @@ function initializeWindowResize() {
         startHeight = rect.height;
         startLeft = rect.left;
         startTop = rect.top;
-        
+
         terminal.classList.add('resizing');
         document.addEventListener('mousemove', resize);
         document.addEventListener('mouseup', stopResize);
@@ -1329,7 +1369,7 @@ function initializeWindowResize() {
 
         // Apply constraints
         const constrained = constrainDimensions(newWidth, newHeight, newLeft, newTop);
-        
+
         // Apply new dimensions and position
         terminal.style.width = `${constrained.width}px`;
         terminal.style.height = `${constrained.height}px`;
@@ -1339,7 +1379,7 @@ function initializeWindowResize() {
 
     function stopResize() {
         if (!isResizing) return;
-        
+
         isResizing = false;
         terminal.classList.remove('resizing');
         document.removeEventListener('mousemove', resize);
@@ -1348,7 +1388,7 @@ function initializeWindowResize() {
 
     // Add event listeners
     terminal.addEventListener('mousedown', startResize);
-    
+
     // Handle window resize
     window.addEventListener('resize', () => {
         const rect = terminal.getBoundingClientRect();
@@ -1358,7 +1398,7 @@ function initializeWindowResize() {
             rect.left,
             rect.top
         );
-        
+
         terminal.style.width = `${constrained.width}px`;
         terminal.style.height = `${constrained.height}px`;
         terminal.style.left = `${constrained.left}px`;
@@ -1376,7 +1416,7 @@ let windowState = 'normal';
 function initializeWindowControls() {
     const terminal = document.querySelector('.terminal-window');
     const greenButton = document.querySelector('.terminal-controls span:nth-child(3)');
-    
+
     // Create simplified window menu
     const menuTemplate = `
         <div class="window-menu">
@@ -1394,26 +1434,26 @@ function initializeWindowControls() {
             </div>
         </div>
     `;
-    
+
     const menu = document.createElement('div');
     menu.innerHTML = menuTemplate;
     menu.className = 'window-menu-container';
     terminal.appendChild(menu);
-    
+
     // Show menu on hover over green button
     greenButton.addEventListener('mouseenter', () => {
         menu.classList.add('show');
     });
-    
+
     menu.addEventListener('mouseleave', () => {
         menu.classList.remove('show');
     });
-    
+
     // Handle menu item clicks
     menu.addEventListener('click', (e) => {
         const menuItem = e.target.closest('.menu-item');
         if (!menuItem) return;
-        
+
         const action = menuItem.dataset.action;
         handleWindowAction(action, terminal);
         menu.classList.remove('show');
@@ -1422,7 +1462,7 @@ function initializeWindowControls() {
 
 function handleWindowAction(action, terminal) {
     const { innerWidth: w, innerHeight: h } = window;
-    
+
     const states = {
         'full-screen': {
             width: '100vw',
@@ -1446,10 +1486,10 @@ function handleWindowAction(action, terminal) {
             borderRadius: '10px 0 0 10px'
         }
     };
-    
+
     const newState = states[action];
     if (!newState) return;
-    
+
     // Save current state before applying new one
     if (!terminal.dataset.previousState) {
         terminal.dataset.previousState = JSON.stringify({
@@ -1460,7 +1500,7 @@ function handleWindowAction(action, terminal) {
             borderRadius: terminal.style.borderRadius
         });
     }
-    
+
     // Apply new state with animation
     Object.assign(terminal.style, newState);
     terminal.setAttribute('data-state', action);
@@ -1495,29 +1535,22 @@ function initializeMenuBar() {
             </div>
         </div>
     `;
-    
+
     document.body.insertBefore(menuBar, document.body.firstChild);
-    
+
     // Initialize dropdown menu
     const menuTrigger = document.getElementById('menu-trigger');
     const menuDropdown = document.createElement('div');
     menuDropdown.className = 'menu-dropdown';
     menuDropdown.innerHTML = `
-        <div class="menu-item" data-shortcut="⌘A">Item A</div>
-        <div class="menu-item" data-shortcut="⌘B">Item B</div>
-        <div class="menu-item" data-shortcut="⌘C">Item C</div>
         <div class="menu-separator"></div>
         <div class="menu-item submenu">
-            Submenu A
-            <span class="submenu-arrow">›</span>
-        </div>
-        <div class="menu-item submenu">
-            Submenu B
+            Theme
             <span class="submenu-arrow">›</span>
         </div>
     `;
     menuTrigger.appendChild(menuDropdown);
-    
+
     // Theme switching
     const themeSwitcher = document.querySelector('.theme-switcher');
     themeSwitcher.addEventListener('click', () => {
@@ -1526,18 +1559,18 @@ function initializeMenuBar() {
         document.body.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
     });
-    
+
     // Menu interactions
     menuTrigger.addEventListener('mouseenter', () => {
         menuDropdown.classList.add('show');
     });
-    
+
     menuTrigger.addEventListener('mouseleave', (e) => {
         if (!menuDropdown.contains(e.relatedTarget)) {
             menuDropdown.classList.remove('show');
         }
     });
-    
+
     // Load saved theme
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.body.setAttribute('data-theme', savedTheme);
@@ -1553,25 +1586,25 @@ document.addEventListener('DOMContentLoaded', () => {
 function initializeDock() {
     const dock = document.querySelector('.dock');
     const dockItems = dock.querySelectorAll('.dock-item');
-    
+
     // Add data-name attributes for tooltips
     const names = ['Home', 'Projects', 'Skills', 'Blog', 'Contact'];
     dockItems.forEach((item, index) => {
         item.setAttribute('data-name', names[index]);
     });
-    
+
     // Mouse move animation
     dock.addEventListener('mousemove', (e) => {
         const mouseX = e.clientX;
-        
+
         dockItems.forEach(item => {
             const rect = item.getBoundingClientRect();
             const itemX = rect.left + rect.width / 2;
             const distance = Math.abs(mouseX - itemX);
             const scale = Math.max(1, 1.5 - distance / 100);
-            
+
             item.style.transform = `scale(${scale})`;
-            
+
             // Add vertical movement
             if (scale > 1.2) {
                 const lift = Math.min((scale - 1) * 20, 10);
@@ -1579,14 +1612,14 @@ function initializeDock() {
             }
         });
     });
-    
+
     // Reset animations when mouse leaves dock
     dock.addEventListener('mouseleave', () => {
         dockItems.forEach(item => {
             item.style.transform = '';
         });
     });
-    
+
     // Click handling and active states
     dockItems.forEach(item => {
         item.addEventListener('click', () => {
@@ -1594,7 +1627,7 @@ function initializeDock() {
             dockItems.forEach(i => i.classList.remove('active'));
             // Add active state to clicked item
             item.classList.add('active');
-            
+
             // Add bounce animation
             item.style.animation = 'dockBounce 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
             item.addEventListener('animationend', () => {

@@ -11,7 +11,7 @@
     --terminal-text-light: #2c3e50;
     --terminal-border-light: rgba(255, 255, 255, 0.2);
     
-    --terminal-bg-dark: rgba(28, 28, 28, 0.95);
+    --terminal-bg-dark: rgba(28, 28, 28, 0.5);
     --terminal-text-dark: #ecf0f1;
     --terminal-border-dark: rgba(255, 255, 255, 0.1);
 
@@ -63,7 +63,6 @@ body {
     transform: translateX(-50%);
     display: flex;
     gap: 10px;
-    background: rgba(40,40,40,0.8);
     backdrop-filter: blur(10px);
     padding: 8px;
     border-radius: 12px;
@@ -73,10 +72,11 @@ body {
 .dock-item {
     width: 40px;
     height: 40px;
-    background: #333;
+    background: var(--menu-bg);
     border-radius: 8px;
     cursor: pointer;
     transition: transform 0.2s ease;
+    text-align: center;
 }
 
 .dock-item:hover {
@@ -178,8 +178,7 @@ body {
     overflow: auto;
     height: calc(100% - 40px);
     color: var(--terminal-text);
-    background: transparent;
-    /* white-space: pre-wrap; */
+    background: rgba(0, 0, 0, 0.5);
 }
 
 /* Grid layouts */
