@@ -8,6 +8,8 @@ Code Style and Structure
 - Reusable code raw javascript
 - do evrything by raw html and css and javascript
 - polyfiller
+- every window should be drag and droppable
+- User Experience wil be like Mac OS X Sequoia clone
 
 Responsive Design
 - Use CSS Slider for laptop, desktop, tabet layout 
