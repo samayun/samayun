@@ -1,7 +1,9 @@
 :root {
     --primary-green: #2ecc71;
-    --terminal-bg: rgba(0, 0, 0, 0.9);
+    --terminal-bg: rgba(0, 0, 0, 0.7);
+    --base-font-size: 16px;
 }
+
 
 body {
     background: url('https://consomac.fr/images/news/macos-sequoia-forest-wallpaper.jpg');
@@ -98,6 +100,8 @@ body {
     border-radius: 12px;
     overflow: hidden;
     color: #2ecc71;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: top left;
 }
 
 .terminal-header {
@@ -926,7 +930,7 @@ body {
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #00ff00;
+    /* border: 3px solid #00ff00; */
     box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
     margin-bottom: 15px;
     transition: transform 0.3s ease;
@@ -934,5 +938,325 @@ body {
 
 .profile-image:hover {
     transform: scale(1.05) rotate(5deg);
+}
+
+/* Project Card Enhancements */
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(46, 204, 113, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+.project-image-container {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.05);
+}
+
+.project-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    align-items: center;
+}
+
+.tech-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    transition: transform 0.2s ease;
+}
+
+.tech-item:hover {
+    transform: translateY(-2px);
+}
+
+.project-actions {
+    margin-top: auto;
+    display: flex;
+    gap: 1rem;
+    padding-top: 1.5rem;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    background: rgba(46, 204, 113, 0.1);
+    color: var(--primary-green);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    background: rgba(46, 204, 113, 0.2);
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.2);
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .project-card {
+        margin: 0 0 1.5rem;
+        width: 100%;
+    }
+    
+    .project-image-container {
+        height: 180px;
+    }
+    
+    .project-content {
+        padding: 1rem;
+    }
+    
+    .tech-item {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .project-link {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Loading Animation */
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-card {
+    animation: cardEntrance 0.6s ease forwards;
+    opacity: 0;
+}
+
+.project-card:nth-child(2) { animation-delay: 0.1s; }
+.project-card:nth-child(3) { animation-delay: 0.2s; }
+.project-card:nth-child(4) { animation-delay: 0.3s; }
+
+/* Minimize animation styles */
+.minimized-window {
+    position: relative;
+    animation: dockBounce 1.2s infinite;
+}
+
+@keyframes dockBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Restore button styling */
+.minimized-window::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+/* Floating quote styles */
+.quote-floating {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.quote-bubble {
+    background: rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid rgba(254, 188, 46, 0.3);
+    backdrop-filter: blur(10px);
+    max-width: 300px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.quote-text {
+    color: #FEFEFE;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.quote-text:before {
+    content: "💡";
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Sequoia Lock Screen Styles */
+.lock-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(160deg, #1a1a1a 0%, #2d2d2d 100%);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 10000;
+    cursor: pointer;
+}
+
+.sequoia-lock-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+}
+
+.profile-container {
+    text-align: center;
+}
+
+.profile-image-wrapper {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    padding: 4px;
+    margin: 0 auto 1.5rem;
+}
+
+.profile-image {
+    /* width: 100%;
+    height: 100%; */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255,255,255,0.1);
+}
+
+.profile-name {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #fff;
+    text-transform: capitalize;
+    letter-spacing: -0.5px;
+}
+
+.time-container {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.lock-screen .time {
+    font-size: 4.5rem;
+    font-weight: 300;
+    letter-spacing: -2px;
+    color: #fff;
+    margin: 0;
+}
+
+.lock-screen .date {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.8);
+    margin-top: 0.5rem;
+}
+
+.unlock-instruction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.unlock-arrow {
+    font-size: 2.4rem;
+    color: rgba(255,255,255,0.9);
+    animation: unlockBounce 1.5s infinite;
+}
+
+.unlock-text {
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.9);
+}
+
+@keyframes unlockBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .profile-image-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .lock-screen .time {
+        font-size: 3.5rem;
+    }
+    
+    .lock-screen .date {
+        font-size: 1.2rem;
+    }
 }
 

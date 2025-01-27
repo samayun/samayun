@@ -448,6 +448,16 @@ const education = [
     },
 ];
 
+// Add to top of script.js
+const developerQuotes = [
+    "Any fool can write code that a computer can understand. Good programmers write code that humans can understand. – Martin Fowler",
+    "First, solve the problem. Then, write the code. – John Johnson",
+    "Simplicity is the soul of efficiency. – Austin Freeman",
+    "Make it work, make it right, make it fast. – Kent Beck",
+    "The only way to learn a new programming language is by writing programs in it. – Dennis Ritchie",
+    "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it. – Brian Kernighan"
+];
+
 function displayTerminalContent(content) {
     const terminal = document.getElementById('terminal-output');
     terminal.innerHTML = '';
@@ -504,52 +514,71 @@ function educationCommand() {
 
 function projectsCommand() {
     const projectsHTML = `
-        <div class="carousel-container">
-            <div class="carousel-track" id="project-carousel">
-                ${projects.map(project => `
-                    <div class="carousel-slide">
-                        <div class="project-content">
-                            <div class="project-media">
-                                <img src="${project.image}" alt="${project.title}" class="slide-image">
-                                ${project.live_url ? `
-                                    <a href="${project.live_url}" target="_blank" class="project-link">
-                                        <span class="link-icon">🌐</span> Visit Live
-                                    </a>
-                                ` : ''}
-                            </div>
-                            <div class="project-details">
-                                <h3>${project.title}</h3>
-                                <div class="tech-stack">
-                                    ${project.technologies.map(tech => `
-                                        <div class="tech-item">
-                                            <img src="${tech.icon}" alt="${tech.key}" title="${tech.key}">
-                                            <span>${tech.key}</span>
-                                        </div>
-                                    `).join('')}
-                                </div>
-                                <p class="project-description">${project.description}</p>
-                                ${project.features ? `
-                                    <div class="project-features">
-                                        <h4>Key Features:</h4>
-                                        <ul>
-                                            ${project.features.map(feat => `<li>${feat}</li>`).join('')}
-                                        </ul>
+        <div class="projects-grid">
+            ${projects.map((project, index) => `
+                <div class="project-card" style="animation-delay: ${index * 0.1}s">
+                    <div class="project-image-container">
+                        <img src="${project.image}" alt="${project.title}" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">${project.title}</h3>
+                        <p class="project-description">${project.description}</p>
+                        
+                        ${project.technologies.length > 0 ? `
+                            <div class="tech-stack">
+                                ${project.technologies.map(tech => `
+                                    <div class="tech-item">
+                                        <img src="${tech.icon}" alt="${tech.key}" width="20" height="20">
+                                        <span>${tech.key}</span>
                                     </div>
-                                ` : ''}
+                                `).join('')}
                             </div>
+                        ` : ''}
+                        
+                        <div class="project-actions">
+                            ${project.live_url ? `
+                                <a href="${project.live_url}" 
+                                   class="project-link"
+                                   target="_blank"
+                                   aria-label="View ${project.title} live demo">
+                                    <span>🌐</span>
+                                    <span>Live Demo</span>
+                                </a>
+                            ` : ''}
                         </div>
                     </div>
-                `).join('')}
-            </div>
-            <div class="carousel-controls">
-                <button class="carousel-arrow prev" onclick="moveSlide(-1, 'project')">‹</button>
-                <div class="carousel-dots" id="project-dots"></div>
-                <button class="carousel-arrow next" onclick="moveSlide(1, 'project')">›</button>
-            </div>
+                </div>
+            `).join('')}
         </div>
     `;
+
     displayTerminalContent(projectsHTML);
-    initCarousel('project', projects.length);
+    addProjectInteractions();
+}
+
+function addProjectInteractions() {
+    // Hover effect for project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+
+    // Click animation
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', () => {
+            anime({
+                targets: card,
+                scale: [0.98, 1],
+                duration: 200,
+                easing: 'easeOutQuad'
+            });
+        });
+    });
 }
 
 // Dock Event Listeners
@@ -731,4 +760,162 @@ document.addEventListener('click', (e) => {
         document.body.style.overflow = '';
     }
 });
+
+// Update minimize button handler
+document.querySelector('.terminal-controls span:nth-child(2)').addEventListener('click', function() {
+    showRandomQuote();
+    setTimeout(minimizeWindow, 1000); // Minimize after 1 second
+});
+
+function showRandomQuote() {
+    const randomQuote = developerQuotes[Math.floor(Math.random() * developerQuotes.length)];
+    const quoteElement = document.createElement('div');
+    quoteElement.className = 'quote-floating';
+    quoteElement.innerHTML = `
+        <div class="quote-bubble">
+            <p class="quote-text">${randomQuote}</p>
+        </div>
+    `;
+    
+    document.body.appendChild(quoteElement);
+    
+    // Animation for floating quote
+    anime({
+        targets: quoteElement,
+        opacity: [0, 1],
+        translateY: [50, 0],
+        duration: 500,
+        easing: 'easeOutQuad'
+    });
+    
+    // Remove quote after animation
+    setTimeout(() => {
+        anime({
+            targets: quoteElement,
+            opacity: 0,
+            translateY: -50,
+            duration: 300,
+            easing: 'easeInQuad',
+            complete: () => quoteElement.remove()
+        });
+    }, 2000);
+}
+
+function minimizeWindow() {
+    const terminal = document.querySelector('.terminal-window');
+    const dock = document.querySelector('.dock');
+    
+    // Get positions
+    const terminalRect = terminal.getBoundingClientRect();
+    const dockRect = dock.getBoundingClientRect();
+    
+    // Calculate animation values
+    const scaleFactor = 0.2;
+    const targetX = dockRect.left + (dockRect.width / 2) - (terminalRect.width * scaleFactor / 2);
+    const targetY = dockRect.top - (terminalRect.height * scaleFactor);
+    
+    anime({
+        targets: terminal,
+        scale: scaleFactor,
+        translateX: targetX - terminalRect.left,
+        translateY: targetY - terminalRect.top,
+        duration: 600,
+        easing: 'easeInOutQuad',
+        complete: () => {
+            terminal.style.transform = 'none';
+            terminal.style.display = 'none';
+            addMinimizedThumbnail();
+        }
+    });
+}
+
+function addMinimizedThumbnail() {
+    const dock = document.querySelector('.dock');
+    const thumbnail = document.createElement('div');
+    thumbnail.className = 'dock-item minimized-window';
+    thumbnail.innerHTML = '📁';
+    
+    thumbnail.addEventListener('click', () => {
+        restoreWindow();
+        thumbnail.remove();
+    });
+    
+    dock.appendChild(thumbnail);
+}
+
+function restoreWindow() {
+    const terminal = document.querySelector('.terminal-window');
+    terminal.style.display = 'block';
+    
+    anime({
+        targets: terminal,
+        scale: [0.2, 1],
+        translateY: [200, 0],
+        opacity: [0, 1],
+        duration: 800,
+        easing: 'easeOutElastic(1, .5)'
+    });
+}
+
+// Add to top of script.js
+let isTerminalClosed = false;
+
+// Red close button handler
+document.querySelector('.terminal-controls span:nth-child(1)').addEventListener('click', showLockScreen);
+
+function showLockScreen() {
+    if (isTerminalClosed) return;
+    
+    const terminal = document.querySelector('.terminal-window');
+    terminal.style.opacity = '0';
+
+    // Create Sequoia-style lock screen
+    const lockScreen = document.createElement('div');
+    lockScreen.className = 'lock-screen';
+    lockScreen.innerHTML = `
+        <div class="sequoia-lock-content">
+            <div class="profile-container">
+                <div class="profile-image-wrapper">
+                    <img src="${profile.image}" class="profile-image" alt="${profile.name}">
+                </div>
+                <div class="profile-name">${profile.name}</div>
+            </div>
+            
+            <div class="time-container">
+                <div class="time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
+                <div class="date">${new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</div>
+            </div>
+            
+            <div class="unlock-instruction">
+                <div class="unlock-arrow">⌵</div>
+                <div class="unlock-text">Click to unlock</div>
+            </div>
+        </div>
+    `;
+
+    // Add click handler to restore
+    lockScreen.addEventListener('click', () => {
+        anime({
+            targets: lockScreen,
+            opacity: 0,
+            duration: 500,
+            complete: () => {
+                lockScreen.remove();
+                terminal.style.opacity = '1';
+                isTerminalClosed = false;
+            }
+        });
+    });
+
+    document.body.appendChild(lockScreen);
+    isTerminalClosed = true;
+    
+    // Animate lock screen entrance
+    anime({
+        targets: lockScreen,
+        opacity: [0, 1],
+        duration: 800,
+        easing: 'easeOutQuad'
+    });
+}
 
