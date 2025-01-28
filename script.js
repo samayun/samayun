@@ -1062,66 +1062,6 @@ function minimizeWindow(terminal) {
     });
 }
 
-// Enhanced Maximize
-function toggleMaximize(terminal) {
-    const windowState = windows.find(w => w.element === terminal);
-    if (!windowState) return;
-
-    if (windowState.isMaximized) {
-        // Restore to initial size/position
-        terminal.style.width = `${windowState.position.width}px`;
-        terminal.style.height = `${windowState.position.height}px`;
-        terminal.style.left = `${windowState.position.x}px`;
-        terminal.style.top = `${windowState.position.y}px`;
-        terminal.style.transform = 'none';
-    } else {
-        // Maximize to full screen
-        windowState.position = {
-            x: terminal.offsetLeft,
-            y: terminal.offsetTop,
-            width: terminal.offsetWidth,
-            height: terminal.offsetHeight
-        };
-
-        terminal.style.width = '100vw';
-        terminal.style.height = '100vh';
-        terminal.style.left = '0';
-        terminal.style.top = '0';
-        terminal.style.transform = 'none';
-    }
-
-    windowState.isMaximized = !windowState.isMaximized;
-    terminal.classList.toggle('maximized', windowState.isMaximized);
-}
-
-// Add window initialization logic
-function createTerminalWindow() {
-    const terminal = document.createElement('div');
-    terminal.className = 'terminal-window';
-
-    // Set initial size and position
-    terminal.style.width = '800px';
-    terminal.style.height = '500px';
-    terminal.style.left = '50%';
-    terminal.style.top = '50%';
-    terminal.style.transform = 'translate(-50%, -50%)';
-
-    // Store window state
-    windows.push({
-        element: terminal,
-        position: {
-            x: window.innerWidth / 2 - 400, // 800px width / 2
-            y: window.innerHeight / 2 - 250, // 500px height / 2
-            width: 800,
-            height: 500
-        },
-        isMaximized: false
-    });
-
-    document.body.appendChild(terminal);
-    initWindow(terminal);
-}
-
 // Window state management
 let windowStates = new Map();
 let minimizedWindows = [];
@@ -1469,7 +1409,8 @@ function handleWindowAction(action, terminal) {
             height: '100vh',
             left: '0',
             top: '0',
-            borderRadius: '0'
+            borderRadius: '0',
+            marginTop: '30px'
         },
         'left-half': {
             width: '50vw',
