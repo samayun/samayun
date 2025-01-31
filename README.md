@@ -45,7 +45,7 @@
     <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png" alt="Docker" width="40" height="40"/>
   </a>
   <a href="https://github.com/samayun?tab=repositories&q=nestjs" target="_blank">
-    <img src="[https://nestjs.com/logo-small-gradient.76616405.svg](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUDlYKWwiHIBw0AwCCpREi9UdXkn0JlZkyCw&)" alt="Nest JS" width="40" height="40"/>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUDlYKWwiHIBw0AwCCpREi9UdXkn0JlZkyCw&" alt="Nest JS" width="40" height="40"/>
   </a>
   <a href="https://github.com/samayun?tab=repositories&q=rabbitmq" target="_blank">
     <img src="https://www.rabbitmq.com/img/rabbitmq-logo-with-name.svg" alt="Rabbit MQ" width="40" height="40"/>
