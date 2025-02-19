@@ -2,10 +2,10 @@
 
 <!-- ![Banner](https://user-images.githubusercontent.com/31636535/133980556-5e36795a-0f7f-4c0f-a076-013c0f07b233.gif) -->
 
-### <img src="https://c.tenor.com/_DOBjnGspYAAAAAM/code-coding.gif" width="20"/> I'm a 😍 Software Engineer 😍
+### <img src="https://c.tenor.com/_DOBjnGspYAAAAAM/code-coding.gif" width="20"/> I'm a Software Engineer 😍
 - 🌱 I’m currently exploring <b class="H1"> Deep Learning  </b> 
 - 🥅 2025 Goals: <b style="color: green"> PyTorch</b>,<b> Apache Spark </b>
-- ⚡ Fun fact: I love to explore latest technolgies & reading books
+- ⚡ Fun fact: I love to explore latest technologies & reading books
 
 <!-- <table style="border:5px red;color:red;display:none;">
  <tr border="0">
