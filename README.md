@@ -19,6 +19,7 @@
 ### <img src="https://c.tenor.com/9q2hehDWaQYAAAAi/sending-love-cute.gif" width="50"> Connect with me: ![Profile Views ](https://komarev.com/ghpvc/?username=samayun&label=Profile%20Views&color=3cb480)
 
 [![LinkedIn Connect](https://img.shields.io/badge/Connect_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://bd.linkedin.com/in/samayun)
+[![Kaggle Profile](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=Kaggle&logoColor=white)](https://www.kaggle.com/samayun)
 [![Medium Follow](https://img.shields.io/badge/Blogs-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://samayun.medium.com)
 [![Stack Over Flow](https://img.shields.io/badge/Questions-FE7A16?style=for-the-badge&logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/12932846/samayun-miah-chowdhury)
 [![Hackerrank Profile](https://img.shields.io/badge/-Hackerrank-2EC866?style=for-the-badge&logo=HackerRank&logoColor=white)](https://hackerrank.com/samayunmc)
