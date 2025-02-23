@@ -22,8 +22,10 @@
 [![LeetCode Profile](https://img.shields.io/badge/-LeetCode-FFA116?style=for-the-badge&logo=LeetCode&logoColor=black)]([https://www.kaggle.com/samayun](https://leetcode.com/u/samayun/))
 [![Kaggle Profile](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=Kaggle&logoColor=white)](https://www.kaggle.com/samayun)
 [![Medium Follow](https://img.shields.io/badge/Blogs-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://samayun.medium.com)
+<!--  
 [![Stack Over Flow](https://img.shields.io/badge/Questions-FE7A16?style=for-the-badge&logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/12932846/samayun-miah-chowdhury)
 [![Hackerrank Profile](https://img.shields.io/badge/-Hackerrank-2EC866?style=for-the-badge&logo=HackerRank&logoColor=white)](https://hackerrank.com/samayunmc)
+-->
 <br />
 
 <!--
