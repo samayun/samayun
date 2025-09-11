@@ -4,6 +4,278 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevOps and Backend Development for E-commerce Automation - Industrial Training Defense</title>
+    
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #d4f1d4 0%, #a8d8a8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .slide-container {
+            width: 100%;
+            max-width: 1200px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .gub-header {
+            background: linear-gradient(135deg, #c8e6c9 0%, #81c784 100%);
+            padding: 30px 50px;
+            position: relative;
+        }
+        
+        .gub-header h2 {
+            color: #1b5e20;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .gub-logo {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+        }
+        
+        .gub-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .slide-content {
+            padding: 40px 50px;
+        }
+        
+        .gantt-container {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .gantt-chart {
+            display: grid;
+            grid-template-columns: 200px repeat(7, 1fr);
+            gap: 10px;
+            min-width: 900px;
+        }
+        
+        /* Header Row */
+        .gantt-header {
+            display: contents;
+        }
+        
+        .gantt-header-cell {
+            background: linear-gradient(135deg, #4CAF50 0%, #388e3c 100%);
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .gantt-header-cell.task {
+            text-align: left;
+        }
+        
+        /* Task Rows */
+        .gantt-row {
+            display: contents;
+        }
+        
+        .gantt-task {
+            background: #e8f5e9;
+            padding: 12px;
+            border-left: 4px solid #4CAF50;
+            border-radius: 5px;
+            font-weight: 600;
+            color: #2e7d32;
+            display: flex;
+            align-items: center;
+        }
+        
+        .gantt-cell {
+            position: relative;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 3px;
+            min-height: 40px;
+        }
+        
+        .gantt-bar {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 30px;
+            background: linear-gradient(90deg, #4CAF50 0%, #66BB6A 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: slideIn 1s ease-out;
+            white-space: nowrap;
+            padding: 0 10px;
+            z-index: 1;
+        }
+        
+        @keyframes slideIn {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Specific bar positions and widths */
+        .bar-orientation {
+            left: 0;
+            width: 40%;
+        }
+        
+        .bar-foundation {
+            left: 30%;
+            width: 50%;
+        }
+        
+        .bar-monitoring {
+            left: 0;
+            width: 100%;
+        }
+        
+        .bar-dashboard {
+            left: 0;
+            width: 100%;
+        }
+        
+        .bar-optimization {
+            left: 0;
+            width: 100%;
+        }
+        
+        .bar-cicd {
+            left: 0;
+            width: 100%;
+        }
+        
+        .bar-fraud {
+            left: 0;
+            width: 120%;
+        }
+        
+        .bar-advanced {
+            left: 0;
+            width: 100%;
+        }
+        
+        .bar-documentation {
+            left: 0;
+            width: 150%;
+        }
+        
+        .bar-handover {
+            left: 0;
+            width: 100%;
+        }
+        
+        /* Color variations */
+        .gantt-bar.phase1 {
+            background: linear-gradient(90deg, #2196F3 0%, #64B5F6 100%);
+        }
+        
+        .gantt-bar.phase2 {
+            background: linear-gradient(90deg, #4CAF50 0%, #66BB6A 100%);
+        }
+        
+        .gantt-bar.phase3 {
+            background: linear-gradient(90deg, #FF9800 0%, #FFB74D 100%);
+        }
+        
+        .gantt-bar.phase4 {
+            background: linear-gradient(90deg, #9C27B0 0%, #BA68C8 100%);
+        }
+        
+        /* Summary section */
+        .summary-section {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .summary-card {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #4CAF50;
+        }
+        
+        .summary-card h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .summary-card p {
+            color: #424242;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .timeline-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .legend-color {
+            width: 30px;
+            height: 15px;
+            border-radius: 8px;
+        }
+        
+        .gub-footer {
+            height: 60px;
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+    
     <style>
         * {
             margin: 0;
@@ -353,6 +625,7 @@
             background: #f5f5f5;
         }
     </style>
+
 </head>
 <body>
     <div class="presentation-container">
@@ -590,39 +863,224 @@
         
         <!-- Slide 9: Weekly Activities Timeline -->
         <div class="slide">
-            <h2>Training Timeline & Key Milestones</h2>
+      <div class="slides-content">
+            <h3 style="text-align: center; color: #2e7d32; margin-bottom: 20px;">Industrial Training Timeline with Gantt Chart</h3>
+            <p style="text-align: center; margin-bottom: 20px;"><strong>Training Period: July 10 - August 28, 2025 (7 Weeks)</strong></p>
             
-            <h3>My 7-Week Transformation</h3>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4>Week 1-2: Foundation</h4>
-                    <p>• Docker setup (3 hours of errors!)<br>
-                    • First Git commit (just a README typo)<br>
-                    • AWS console exploration</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <h4>Week 3-4: Core Implementation</h4>
-                    <p>• Redis caching - <strong>60% performance boost</strong><br>
-                    • ELK Stack configuration<br>
-                    • First production deployment</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <h4>Week 5-6: Advanced Projects</h4>
-                    <p>• Fraud detection system<br>
-                    • Database optimization (5s → 0.3s queries)<br>
-                    • CI/CD pipeline automation</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <h4>Week 7: Leadership & Handover</h4>
-                    <p>• Mentoring new interns<br>
-                    • Documentation creation<br>
-                    • Code review responsibilities</p>
+            <div class="gantt-container">
+                <div class="gantt-chart">
+                    <!-- Header Row -->
+                    <div class="gantt-header">
+                        <div class="gantt-header-cell task">Tasks / Activities</div>
+                        <div class="gantt-header-cell">Week 1<br>(Jul 10-12)</div>
+                        <div class="gantt-header-cell">Week 2<br>(Jul 15-19)</div>
+                        <div class="gantt-header-cell">Week 3<br>(Jul 22-26)</div>
+                        <div class="gantt-header-cell">Week 4<br>(Jul 29-Aug 2)</div>
+                        <div class="gantt-header-cell">Week 5<br>(Aug 5-9)</div>
+                        <div class="gantt-header-cell">Week 6<br>(Aug 12-16)</div>
+                        <div class="gantt-header-cell">Week 7<br>(Aug 19-28)</div>
+                    </div>
+                    
+                    <!-- Task Rows -->
+                    <div class="gantt-row">
+                        <div class="gantt-task">Orientation & Setup</div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar phase1 bar-orientation">100%</div>
+                        </div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                    </div>
+                    
+                    <div class="gantt-row">
+                        <div class="gantt-task">Docker & AWS Training</div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar phase1 bar-foundation" style="left: 60%; width: 40%;">Start</div>
+                        </div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar phase1" style="width: 100%;">Ongoing</div>
+                        </div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                    </div>
+                    
+                    <div class="gantt-row">
+                        <div class="gantt-task">Server Monitoring</div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar phase2 bar-monitoring">ELK Stack</div>
+                        </div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar phase2" style="width: 50%;">Grafana</div>
+                        </div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                    </div>
+                    
+                    <div class="gantt-row">
+                        <div class="gantt-task">SASS Dashboard</div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar phase2 bar-dashboard">Backend APIs</div>
+                        </div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar phase2" style="width: 60%;">Integration</div>
+                        </div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                    </div>
+                    
+                    <div class="gantt-row">
+                        <div class="gantt-task">Database Optimization</div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar phase3" style="left: 50%; width: 50%;">Analysis</div>
+                        </div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar phase3 bar-optimization">Redis Cache</div>
+                        </div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                    </div>
+                    
+                    <div class="gantt-row">
+                        <div class="gantt-task">CI/CD Pipeline</div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar phase3 bar-cicd">GitHub Actions</div>
+                        </div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar phase3" style="width: 80%;">Testing</div>
+                        </div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                    </div>
+                    
+                    <div class="gantt-row">
+                        <div class="gantt-task">Fraud Detection</div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar phase4 bar-fraud">Implementation</div>
+                        </div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar phase4" style="width: 100%;">Testing</div>
+                        </div>
+                        <div class="gantt-cell"></div>
+                    </div>
+                    
+                    <div class="gantt-row">
+                        <div class="gantt-task">Production Deploy</div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar phase4 bar-advanced">Live Deploy</div>
+                        </div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar phase4" style="width: 50%;">Monitor</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gantt-row">
+                        <div class="gantt-task">Documentation</div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar" style="left: 50%; width: 50%;">Start</div>
+                        </div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar bar-documentation">Technical Docs</div>
+                        </div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar" style="width: 100%;">Final Report</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gantt-row">
+                        <div class="gantt-task">Knowledge Transfer</div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell"></div>
+                        <div class="gantt-cell">
+                            <div class="gantt-bar bar-handover">Handover</div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
+            <div class="timeline-legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: linear-gradient(90deg, #2196F3 0%, #64B5F6 100%);"></div>
+                    <span>Foundation Phase</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: linear-gradient(90deg, #4CAF50 0%, #66BB6A 100%);"></div>
+                    <span>Implementation Phase</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: linear-gradient(90deg, #FF9800 0%, #FFB74D 100%);"></div>
+                    <span>Optimization Phase</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: linear-gradient(90deg, #9C27B0 0%, #BA68C8 100%);"></div>
+                    <span>Advanced Phase</span>
+                </div>
+            </div>
+            
+            <div class="summary-section">
+                <div class="summary-card">
+                    <h4>📚 Training Resources</h4>
+                    <p><strong>Human:</strong> Mr. Rashid Abid (COO), Senior DevOps Engineers<br>
+                    <strong>Technical:</strong> Dell Laptop, AWS Access, Development Tools<br>
+                    <strong>Learning:</strong> Documentation, Stack Overflow, Peer Support</p>
+                </div>
+                
+                <div class="summary-card">
+                    <h4>⏱️ Time Management</h4>
+                    <p><strong>Total Duration:</strong> 7 Weeks (47 Days)<br>
+                    <strong>Working Hours:</strong> 80+ Hours<br>
+                    <strong>Schedule:</strong> Tuesday & Saturday On-site</p>
+                </div>
+                
+                <div class="summary-card">
+                    <h4>🎯 Key Milestones</h4>
+                    <p><strong>Week 2:</strong> First Production Deployment<br>
+                    <strong>Week 4:</strong> CI/CD Pipeline Live<br>
+                    <strong>Week 7:</strong> Complete Handover</p>
+                </div>
+                
+                <div class="summary-card">
+                    <h4>📈 Risk Management</h4>
+                    <p><strong>Identify:</strong> Production system risks<br>
+                    <strong>Assess:</strong> Impact analysis<br>
+                    <strong>Mitigate:</strong> Testing & monitoring</p>
+                </div>
+            </div>
+        </div>
         </div>
         
         <!-- Slide 10: Achievements & Metrics -->
