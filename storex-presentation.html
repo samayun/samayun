@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps and Backend Development for E-commerce Automation - Industrial Training Defense</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+        
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slide {
+            width: 90%;
+            max-width: 1200px;
+            height: 85vh;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 60px;
+            display: none;
+            animation: slideIn 0.5s ease-in-out;
+            overflow-y: auto;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+        }
+        
+        .nav-btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .slide-counter {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(255,255,255,0.9);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: #764ba2;
+        }
+        
+        /* Title Slide Styles */
+        .title-slide {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        
+        .title-slide h1 {
+            font-size: 48px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .title-slide h2 {
+            font-size: 28px;
+            color: #34495e;
+            margin-bottom: 30px;
+        }
+        
+        .university-logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #4CAF50 0%, #EEE 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            /* background-image: url('https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/Green_University_of_Bangladesh_logo.svg/1200px-Green_University_of_Bangladesh_logo.svg.png'); */
+        }
+        
+        .storex-logo {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFE66D 100%);
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 32px;
+            margin: 20px 0;
+        }
+        
+        /* Content Slide Styles */
+        h2 {
+            color: #2c3e50;
+            font-size: 36px;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        
+        h4 {
+            color: #7f8c8d;
+            font-size: 20px;
+            margin: 15px 0;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        li:before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        .achievement-box {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .tech-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        
+        .tech-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 20px 0;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -35px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        
+        .metric {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 5px;
+        }
+        
+        .skill-bar {
+            margin: 15px 0;
+        }
+        
+        .skill-bar h4 {
+            margin-bottom: 5px;
+        }
+        
+        .skill-progress {
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            padding-left: 15px;
+            color: white;
+            font-weight: bold;
+            animation: fillBar 1s ease-in-out;
+        }
+        
+        @keyframes fillBar {
+            from {
+                width: 0;
+            }
+        }
+        
+        .org-chart {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .org-box {
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            margin: 0 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .project-card {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .project-card h3 {
+            color: #667eea;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        tr:hover {
+            background: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="slide-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">15</span>
+        </div>
+        
+        <!-- Slide 1: Title -->
+        <div class="slide title-slide active">
+            <div class="university-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/Green_University_of_Bangladesh_logo.svg/1200px-Green_University_of_Bangladesh_logo.svg.png" alt="GUB" width="80%" height="80%">
+            </div>
+            <h1>DevOps and Backend Development for E-commerce Automation</h1>
+            <h2>Industrial Training Defense, Summer 2025</h2>
+            <div class="storex-logo">StoreX</div>
+            <p style="margin-top: 30px; font-size: 20px;">
+                <strong>Presented by:</strong> Samayun Miah Chowdhury (222015031)<br>
+                <strong>Supervisor:</strong> Ms. Sagufta Sabah Nakshi<br>
+                <strong>Department:</strong> Computer Science & Engineering<br>
+                <strong>Green University of Bangladesh</strong>
+            </p>
+        </div>
+        
+        <!-- Slide 2: Agenda -->
+        <div class="slide">
+            <h2>Presentation Agenda</h2>
+            <ul style="font-size: 22px; line-height: 2;">
+                <li>Introduction & Problem Domain</li>
+                <li>Organization Overview - StoreX</li>
+                <li>Training Activities & Responsibilities</li>
+                <li>Key Projects & Technical Implementations</li>
+                <li>Skills Acquired & Technologies Mastered</li>
+                <li>Achievements & Impact</li>
+                <li>PO-Skill Mapping</li>
+                <li>SDG Goal Alignment</li>
+                <li>Conclusion & Future Applications</li>
+            </ul>
+        </div>
+        
+        <!-- Slide 3: Introduction -->
+        <div class="slide">
+            <h2>Introduction: My Journey from Student to DevOps Engineer</h2>
+            
+            <h3>The Challenge</h3>
+            <div class="achievement-box">
+                <p>Transitioning from academic theory to handling production systems serving <strong>thousands of real users daily</strong> at StoreX, Bangladesh's growing e-commerce automation company.</p>
+            </div>
+            
+            <h3>Training Duration</h3>
+            <p><strong>July 10 - August 26, 2025</strong> (7 weeks, 80+ hours)</p>
+            
+            <h3>My Role Evolution</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <strong>Week 1:</strong> "What's Docker?" - Learning containerization basics
+                </div>
+                <div class="timeline-item">
+                    <strong>Week 3:</strong> Implementing Redis caching, reducing response times by 60%
+                </div>
+                <div class="timeline-item">
+                    <strong>Week 7:</strong> Leading fraud detection system implementation
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 4: Motivation & Objectives -->
+        <div class="slide">
+            <h2>Training Motivation & Objectives</h2>
+            
+            <h3>Why This Training Mattered</h3>
+            <ul>
+                <li>Bridge the gap between <span class="highlight">university theory</span> and <span class="highlight">industry practice</span></li>
+                <li>Gain hands-on experience with production-level systems</li>
+                <li>Understand real-world DevOps and backend development</li>
+                <li>Build confidence in handling live e-commerce infrastructure</li>
+            </ul>
+            
+            <h3>Specific Objectives Achieved</h3>
+            <div class="tech-grid">
+                <div class="tech-item">Master Docker & Containerization</div>
+                <div class="tech-item">Implement CI/CD Pipelines</div>
+                <div class="tech-item">Optimize Database Performance</div>
+                <div class="tech-item">Build Fraud Detection Systems</div>
+                <div class="tech-item">Deploy AWS Cloud Infrastructure</div>
+                <div class="tech-item">Create Real-time Monitoring</div>
+            </div>
+        </div>
+        
+        <!-- Slide 5: Academia vs Industry Gap -->
+        <div class="slide">
+            <h2>Identifying the Gap Between Academia and Industry</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Academia</th>
+                        <th>Industry Reality at StoreX</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Perfect datasets & unlimited time</td>
+                        <td>Messy logs & "we need this by EOD"</td>
+                    </tr>
+                    <tr>
+                        <td>Theoretical algorithms (Big O notation)</td>
+                        <td>Real performance metrics affecting users</td>
+                    </tr>
+                    <tr>
+                        <td>Individual assignments</td>
+                        <td>Cross-functional team collaboration</td>
+                    </tr>
+                    <tr>
+                        <td>"It works on my machine"</td>
+                        <td>Must work on production with 99.9% uptime</td>
+                    </tr>
+                    <tr>
+                        <td>Basic Java, C++, Python</td>
+                        <td>Docker, Kubernetes, AWS, Redis, ELK Stack</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="achievement-box">
+                <p><strong>Key Realization:</strong> Every line of code has real consequences - slow code means lost customers and revenue!</p>
+            </div>
+        </div>
+        
+        <!-- Slide 6: Organization Overview -->
+        <div class="slide">
+            <h2>Organization Overview: StoreX</h2>
+            
+            <h3>Company Profile</h3>
+            <ul>
+                <li><strong>Industry:</strong> E-commerce Automation & Cloud Solutions</li>
+                <li><strong>Location:</strong> Dhaka, Bangladesh</li>
+                <li><strong>Mission:</strong> Making e-commerce automation accessible to businesses of all sizes</li>
+                <li><strong>My Supervisor:</strong> Md. Rashid Abid (COO)</li>
+            </ul>
+            
+            <h3>Core Services</h3>
+            <div class="project-card">
+                <h4>🛒 E-commerce Platform Automation</h4>
+                <p>Inventory management, order processing, customer service bots</p>
+            </div>
+            <div class="project-card">
+                <h4>☁️ DevOps & Infrastructure Services</h4>
+                <p>CI/CD pipelines, cloud infrastructure, monitoring solutions</p>
+            </div>
+            <div class="project-card">
+                <h4>💻 Backend Development Services</h4>
+                <p>API development, database optimization, fraud detection systems</p>
+            </div>
+        </div>
+        
+        <!-- Slide 7: Technical Stack & Tools -->
+        <div class="slide">
+            <h2>Technologies Mastered During Training</h2>
+            
+            <h3>DevOps & Infrastructure</h3>
+            <div class="skill-bar">
+                <h4>Docker Containerization</h4>
+                <div class="skill-progress">
+                    <div class="skill-fill" style="width: 85%;">Advanced</div>
+                </div>
+            </div>
+            <div class="skill-bar">
+                <h4>AWS Cloud Services (EC2, S3, RDS)</h4>
+                <div class="skill-progress">
+                    <div class="skill-fill" style="width: 75%;">Intermediate</div>
+                </div>
+            </div>
+            <div class="skill-bar">
+                <h4>GitHub Actions CI/CD</h4>
+                <div class="skill-progress">
+                    <div class="skill-fill" style="width: 90%;">Advanced</div>
+                </div>
+            </div>
+            
+            <h3>Monitoring & Performance</h3>
+            <div class="skill-bar">
+                <h4>ELK Stack (Elasticsearch, Logstash, Kibana)</h4>
+                <div class="skill-progress">
+                    <div class="skill-fill" style="width: 85%;">Advanced</div>
+                </div>
+            </div>
+            <div class="skill-bar">
+                <h4>Redis Caching</h4>
+                <div class="skill-progress">
+                    <div class="skill-fill" style="width: 70%;">Intermediate</div>
+                </div>
+            </div>
+            <div class="skill-bar">
+                <h4>Grafana Dashboards</h4>
+                <div class="skill-progress">
+                    <div class="skill-fill" style="width: 80%;">Advanced</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 8: Key Projects -->
+        <div class="slide">
+            <h2>Major Projects & Contributions</h2>
+            
+            <div class="project-card">
+                <h3>🔒 Project 1: E-commerce Fraud Detection System</h3>
+                <ul>
+                    <li><strong>Challenge:</strong> Too many fraudulent transactions slipping through</li>
+                    <li><strong>My Solution:</strong> Implemented ML-based pattern analysis with Redis caching</li>
+                    <li><strong>Impact:</strong> <span class="metric">30% reduction in false positives</span></li>
+                    <li><strong>Technologies:</strong> Python, Redis, Real-time alerting</li>
+                </ul>
+            </div>
+            
+            <div class="project-card">
+                <h3>📊 Project 2: SASS Admin Dashboard Backend</h3>
+                <ul>
+                    <li><strong>Challenge:</strong> Manual site maintenance taking 30+ minutes</li>
+                    <li><strong>My Solution:</strong> Built REST APIs with JWT authentication</li>
+                    <li><strong>Impact:</strong> <span class="metric">Reduced maintenance time to 5 minutes</span></li>
+                    <li><strong>Technologies:</strong> Node.js, Express, MongoDB, WebSockets</li>
+                </ul>
+            </div>
+            
+            <div class="project-card">
+                <h3>🚀 Project 3: DevOps Infrastructure Automation</h3>
+                <ul>
+                    <li><strong>Challenge:</strong> Manual deployments with 50% failure rate</li>
+                    <li><strong>My Solution:</strong> Implemented complete CI/CD pipeline</li>
+                    <li><strong>Impact:</strong> <span class="metric">95% deployment success rate</span></li>
+                    <li><strong>Technologies:</strong> GitHub Actions, Docker, AWS, Monitoring</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Slide 9: Weekly Activities Timeline -->
+        <div class="slide">
+            <h2>Training Timeline & Key Milestones</h2>
+            
+            <h3>My 7-Week Transformation</h3>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Week 1-2: Foundation</h4>
+                    <p>• Docker setup (3 hours of errors!)<br>
+                    • First Git commit (just a README typo)<br>
+                    • AWS console exploration</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4>Week 3-4: Core Implementation</h4>
+                    <p>• Redis caching - <strong>60% performance boost</strong><br>
+                    • ELK Stack configuration<br>
+                    • First production deployment</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4>Week 5-6: Advanced Projects</h4>
+                    <p>• Fraud detection system<br>
+                    • Database optimization (5s → 0.3s queries)<br>
+                    • CI/CD pipeline automation</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4>Week 7: Leadership & Handover</h4>
+                    <p>• Mentoring new interns<br>
+                    • Documentation creation<br>
+                    • Code review responsibilities</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 10: Achievements & Metrics -->
+        <div class="slide">
+            <h2>Key Achievements & Business Impact</h2>
+            
+            <h3>🎯 Performance Metrics</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="achievement-box">
+                    <h4>Response Time Optimization</h4>
+                    <p><span class="metric">300ms → 120ms</span></p>
+                    <p>60% improvement through Redis caching</p>
+                </div>
+                
+                <div class="achievement-box">
+                    <h4>Deployment Success Rate</h4>
+                    <p><span class="metric">50% → 95%</span></p>
+                    <p>Through automated CI/CD pipelines</p>
+                </div>
+                
+                <div class="achievement-box">
+                    <h4>Database Query Speed</h4>
+                    <p><span class="metric">5s → 0.3s</span></p>
+                    <p>94% faster through optimization</p>
+                </div>
+                
+                <div class="achievement-box">
+                    <h4>Fraud Detection Accuracy</h4>
+                    <p><span class="metric">30% better detection</span></p>
+                    <p>With fewer false positives</p>
+                </div>
+            </div>
+            
+            <h3>📈 Scale Handled</h3>
+            <ul>
+                <li>Systems processing <strong>100,000+ daily transactions</strong></li>
+                <li>Monitoring infrastructure with <strong>99.9% uptime</strong></li>
+                <li>Automated deployments saving <strong>25 minutes per release</strong></li>
+            </ul>
+        </div>
+        
+        <!-- Slide 11: Skills Acquired -->
+        <div class="slide">
+            <h2>Skills Transformation: From Theory to Practice</h2>
+            
+            <h3>Technical Skills Gained</h3>
+            <div class="tech-grid">
+                <div class="tech-item">Container Orchestration</div>
+                <div class="tech-item">Cloud Architecture</div>
+                <div class="tech-item">Performance Monitoring</div>
+                <div class="tech-item">Security Implementation</div>
+                <div class="tech-item">Database Optimization</div>
+                <div class="tech-item">API Development</div>
+            </div>
+            
+            <h3>Professional Skills Developed</h3>
+            <ul>
+                <li><strong>Problem-Solving:</strong> Debugging production issues without panic</li>
+                <li><strong>Communication:</strong> Explaining technical concepts to stakeholders</li>
+                <li><strong>Time Management:</strong> Meeting "end of day" deadlines consistently</li>
+                <li><strong>Team Collaboration:</strong> Working in Agile sprints with cross-functional teams</li>
+                <li><strong>Documentation:</strong> Creating guides that became standard onboarding material</li>
+            </ul>
+            
+            <div class="achievement-box">
+                <p><strong>Personal Growth:</strong> From "What's Docker?" on Day 1 to teaching containerization to new interns by Week 5!</p>
+            </div>
+        </div>
+        
+        <!-- Slide 12: PO Mapping -->
+        <div class="slide">
+            <h2>Program Outcome (PO) - Skill Mapping</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Program Outcome</th>
+                        <th>Achievement in Training</th>
+                        <th>Evidence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>PO2: Problem Analysis</strong></td>
+                        <td>Diagnosed & fixed performance bottlenecks</td>
+                        <td>30% speed improvement in backend queries</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PO5: Modern Tools</strong></td>
+                        <td>Mastered Docker, AWS, ELK Stack, Redis</td>
+                        <td>95% CI/CD pipeline success rate</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PO6: Engineer & Society</strong></td>
+                        <td>Implemented fraud detection for customer protection</td>
+                        <td>Protected thousands of transactions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PO8: Ethics</strong></td>
+                        <td>Maintained data privacy & security standards</td>
+                        <td>Zero security incidents during tenure</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PO10: Communication</strong></td>
+                        <td>Created documentation & conducted training</td>
+                        <td>Trained 3 new interns successfully</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Slide 13: SDG Mapping -->
+        <div class="slide">
+            <h2>SDG Goal Mapping</h2>
+            
+            <h3>Sustainable Development Goals Addressed</h3>
+            
+            <div class="project-card">
+                <h3>SDG 4: Quality Education ✅</h3>
+                <p>Gained industry-relevant technical education and certifications in cloud technologies</p>
+            </div>
+            
+            <div class="project-card">
+                <h3>SDG 8: Decent Work & Economic Growth ✅</h3>
+                <p>Contributed to economic growth through e-commerce automation, enabling businesses to scale</p>
+            </div>
+            
+            <div class="project-card">
+                <h3>SDG 9: Industry, Innovation & Infrastructure ✅</h3>
+                <p>Built innovative DevOps infrastructure and automated systems for industry advancement</p>
+            </div>
+            
+            <div class="project-card">
+                <h3>SDG 12: Responsible Consumption & Production ✅</h3>
+                <p>Optimized server resources, reducing computational waste by 60% through caching</p>
+            </div>
+        </div>
+        
+        <!-- Slide 14: Future Applications -->
+        <div class="slide">
+            <h2>Future Applications & Career Path</h2>
+            
+            <h3>How I'll Apply This Experience</h3>
+            
+            <div class="achievement-box">
+                <h4>💡 Startup Idea: E-commerce Automation Consultancy</h4>
+                <p>Leveraging my StoreX experience to help local businesses automate their operations</p>
+            </div>
+            
+            <h3>Resources Needed for Similar Venture</h3>
+            <ul>
+                <li><strong>Technical Stack:</strong> Docker, AWS (t3.medium instances), GitHub Actions</li>
+                <li><strong>Team:</strong> 2-3 developers (Backend, Frontend, DevOps)</li>
+                <li><strong>Budget:</strong> $500-1000/month for cloud infrastructure</li>
+                <li><strong>Initial Service:</strong> Lightweight SaaS admin dashboard for SMEs</li>
+            </ul>
+            
+            <h3>Career Readiness</h3>
+            <div class="tech-grid">
+                <div class="tech-item">Junior DevOps Engineer</div>
+                <div class="tech-item">Backend Developer</div>
+                <div class="tech-item">Cloud Solutions Architect</div>
+                <div class="tech-item">Site Reliability Engineer</div>
+            </div>
+        </div>
+        
+        <!-- Slide 15: Conclusion -->
+        <div class="slide">
+            <h2>Conclusion: From Nervous Intern to Confident Engineer</h2>
+            
+            <div class="achievement-box" style="font-size: 20px; text-align: center;">
+                <p>"7 weeks that transformed me from someone who couldn't set up Docker to someone trusted with production systems serving thousands of users"</p>
+            </div>
+            
+            <h3>Key Takeaways</h3>
+            <ul>
+                <li>Industrial training bridges the crucial gap between academia and industry</li>
+                <li>Real-world experience with production systems is irreplaceable</li>
+                <li>Every error message and failed deployment is a learning opportunity</li>
+                <li>The startup environment accelerates learning exponentially</li>
+            </ul>
+            
+            <h3>My Message to Future Interns</h3>
+            <div class="project-card" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                <p style="font-style: italic; font-size: 18px;">
+                "Embrace the confusion, ask 'stupid' questions (they're usually not stupid), and don't panic when you break something. Every senior developer was once an intern who broke production. Trust the process!"
+                </p>
+            </div>
+            
+            <h3 style="text-align: center; margin-top: 40px;">Thank You!</h3>
+            <p style="text-align: center; font-size: 18px;">
+                Questions & Discussion Welcome<br>
+                <strong>GitHub:</strong> @samayun | <strong>Project:</strong> github.com/amjadrana05/storex
+            </p>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+    </div>
+    
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 15;
+        
+        function showSlide(n) {
+            const slides = document.getElementsByClassName('slide');
+            
+            if (n > totalSlides) {
+                currentSlide = totalSlides;
+            }
+            if (n < 1) {
+                currentSlide = 1;
+            }
+            
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove('active');
+            }
+            
+            slides[currentSlide - 1].classList.add('active');
+            
+            document.getElementById('currentSlide').textContent = currentSlide;
+            document.getElementById('totalSlides').textContent = totalSlides;
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        }
+        
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (event.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+        
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
