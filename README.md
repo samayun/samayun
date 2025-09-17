@@ -4,7 +4,7 @@
 
 ### <img src="https://c.tenor.com/_DOBjnGspYAAAAAM/code-coding.gif" width="20"/> I'm a Software Engineer 😍
 - 🌱 I’m currently exploring <b class="H1"> Deep Learning  </b> 
-- 🥅 2025 Goals: <b style="color: green"> PyTorch</b>,<b> Apache Spark </b>
+- 🥅 2025 Goals: <b style="color: green"> TensorFlow</b>,<b> CrewAI </b>,<b> Vector Database (Milvus) </b>
 - ⚡ Fun fact: I love to explore latest technologies & reading books
 
 <!-- <table style="border:5px red;color:red;display:none;">
