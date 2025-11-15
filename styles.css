@@ -118,7 +118,55 @@ body {
     transform: scale(1.1);
 }
 
+/* Running indicator for active apps */
+.dock-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+}
+
+.dock-item.minimized-window::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-green);
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
 /* Tooltip */
+.dock-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    opacity: 0;
+    transition: 0.2s all ease-out;
+    pointer-events: none;
+    white-space: nowrap;
+    margin-bottom: 8px;
+    z-index: 10000;
+}
+
+.dock-item:hover .dock-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-12px);
+}
+
 .tooltip {
     position: absolute;
     top: -35px;
@@ -1637,6 +1685,38 @@ body {
 
 .theme-icon {
     font-size: 14px;
+}
+
+/* Status Icons */
+.status-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-icon {
+    font-size: 14px;
+    cursor: pointer;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.status-icon:hover {
+    background: var(--menu-hover);
+}
+
+.menu-clock {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.menu-clock:hover {
+    background: var(--menu-hover);
 }
 
 [data-theme="light"] .theme-icon.dark,

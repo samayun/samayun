@@ -1470,9 +1470,15 @@ function initializeMenuBar() {
             <div class="menu-item" id="menu-trigger">Menu</div>
         </div>
         <div class="menu-bar-right">
-            <div class="theme-switcher">
-                <span class="theme-icon light">☀️</span>
-                <span class="theme-icon dark">🌙</span>
+            <div class="status-icons">
+                <span class="status-icon">📶</span>
+                <span class="status-icon">🔋</span>
+                <div class="theme-switcher">
+                    <span class="theme-icon light">☀️</span>
+                    <span class="theme-icon dark">🌙</span>
+                </div>
+                <span class="status-icon control-center">⚙️</span>
+                <span class="menu-clock" id="menu-clock"></span>
             </div>
         </div>
     `;
@@ -1515,6 +1521,29 @@ function initializeMenuBar() {
     // Load saved theme
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.body.setAttribute('data-theme', savedTheme);
+
+    // Initialize clock
+    updateMenuClock();
+    setInterval(updateMenuClock, 1000);
+}
+
+// Update menu bar clock
+function updateMenuClock() {
+    const clockElement = document.getElementById('menu-clock');
+    if (clockElement) {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        const displayHours = hours % 12 || 12;
+        const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const dayName = dayNames[now.getDay()];
+        const monthName = monthNames[now.getMonth()];
+        const date = now.getDate();
+        
+        clockElement.textContent = `${dayName} ${monthName} ${date}  ${displayHours}:${minutes} ${ampm}`;
+    }
 }
 
 // Initialize on load
@@ -1529,9 +1558,17 @@ function initializeDock() {
     const dockItems = dock.querySelectorAll('.dock-item');
 
     // Add data-name attributes for tooltips
-    const names = ['Home', 'Projects', 'Skills', 'Blog', 'Contact'];
+    const names = ['Home', 'Works', 'Projects', 'Skills', 'Blog', 'Education'];
     dockItems.forEach((item, index) => {
-        item.setAttribute('data-name', names[index]);
+        if (index < names.length) {
+            item.setAttribute('data-name', names[index]);
+            
+            // Add tooltip
+            const tooltip = document.createElement('div');
+            tooltip.className = 'dock-tooltip';
+            tooltip.textContent = names[index];
+            item.appendChild(tooltip);
+        }
     });
 
     // Mouse move animation
