@@ -111,7 +111,7 @@
 
 
 ### 📊 GitHub Stats:
-<img align="left" alt="Docker" src="./profile-3d-contrib/profile-season-animate.svg" height="400px" />
+<img align="left" alt="Docker" src="./profile-3d-contrib/profile-night-rainbow.svg" height="400px" />
 
 <!--
 <table style="border:5px red;color:red;display:none;">
