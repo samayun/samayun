@@ -963,8 +963,16 @@ function showLockScreen() {
 let windows = [];
 let activeWindow = null;
 let dragType = null;
+let dragState = {};
 const MIN_WIDTH = 300;
 const MIN_HEIGHT = 200;
+
+// Bring window to front
+function bringToFront(window) {
+    const allWindows = document.querySelectorAll('.terminal-window');
+    allWindows.forEach(w => w.style.zIndex = '1000');
+    window.style.zIndex = '1001';
+}
 
 // Event Listeners
 document.addEventListener('mousedown', handleMouseDown);
@@ -1459,10 +1467,19 @@ function initializeMenuBar() {
     menuBar.className = 'menu-bar';
     menuBar.innerHTML = `
         <div class="menu-bar-left">
-            <div class="apple-menu">
+            <div class="apple-menu" id="apple-menu">
                 <svg class="apple-logo" viewBox="0 0 16 16">
                     <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/>
                 </svg>
+                <div class="apple-dropdown" id="apple-dropdown">
+                    <div class="menu-item">About This Portfolio</div>
+                    <div class="menu-separator"></div>
+                    <div class="menu-item">System Preferences...</div>
+                    <div class="menu-separator"></div>
+                    <div class="menu-item">Sleep</div>
+                    <div class="menu-item">Restart...</div>
+                    <div class="menu-item">Shut Down...</div>
+                </div>
             </div>
             <div class="app-name">Portfolio</div>
         </div>
@@ -1484,6 +1501,20 @@ function initializeMenuBar() {
     `;
 
     document.body.insertBefore(menuBar, document.body.firstChild);
+
+    // Apple menu dropdown
+    const appleMenu = document.getElementById('apple-menu');
+    const appleDropdown = document.getElementById('apple-dropdown');
+    
+    appleMenu.addEventListener('click', (e) => {
+        e.stopPropagation();
+        appleDropdown.classList.toggle('show');
+    });
+
+    // Close apple menu when clicking outside
+    document.addEventListener('click', () => {
+        appleDropdown.classList.remove('show');
+    });
 
     // Initialize dropdown menu
     const menuTrigger = document.getElementById('menu-trigger');
@@ -1550,7 +1581,54 @@ function updateMenuClock() {
 document.addEventListener('DOMContentLoaded', () => {
     initializeMenuBar();
     initializeWindowControls();
+    initializeDesktopIcons();
 });
+
+// Desktop icons functionality
+function initializeDesktopIcons() {
+    const desktopIcons = document.querySelectorAll('.desktop-icon');
+    
+    desktopIcons.forEach(icon => {
+        icon.addEventListener('dblclick', () => {
+            const action = icon.dataset.action;
+            handleDesktopIconAction(action);
+        });
+    });
+}
+
+function handleDesktopIconAction(action) {
+    const terminal = document.querySelector('.terminal-window');
+    terminal.style.display = 'block';
+    
+    // Bring terminal to front
+    bringToFront(terminal);
+    
+    // Navigate based on action
+    switch(action) {
+        case 'about':
+            homeCommand();
+            break;
+        case 'resume':
+            window.open(profile.resumeDownloadLink, '_blank');
+            break;
+        case 'contact':
+            // Show contact information
+            const contactContent = `
+                <div class="profile-container" style="margin-top: 50px;">
+                    <h2 style="color: var(--primary-green); margin-bottom: 20px;">Contact Me</h2>
+                    <div style="text-align: left; max-width: 400px; margin: 0 auto;">
+                        <p><strong>Email:</strong> <a href="mailto:${profile.email}">${profile.email}</a></p>
+                        <p><strong>Phone:</strong> ${profile.phone}</p>
+                        <p><strong>Location:</strong> ${profile.address}</p>
+                        <p><strong>LinkedIn:</strong> <a href="${profile.linkedin}" target="_blank">linkedin.com/in/samayun</a></p>
+                        <p><strong>GitHub:</strong> <a href="${profile.github}" target="_blank">github.com/samayun</a></p>
+                    </div>
+                </div>
+            `;
+            displayTerminalContent(contactContent);
+            break;
+    }
+}
 
 // Dock animations and functionality
 function initializeDock() {
