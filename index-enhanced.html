@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Samayun - Portfolio</title>
+
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/31636535?s=96&v=4">
+
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/31636535">
+    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/31636535">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link rel="stylesheet" href="styles-enhanced.css">
+</head>
+
+<body>
+    <!-- Menu Bar -->
+    <div class="menu-bar">
+        <div class="menu-left">
+            <div class="apple-menu">🍎</div>
+            <div class="app-name">Portfolio</div>
+            <div class="menu-item">File</div>
+            <div class="menu-item">Edit</div>
+            <div class="menu-item">View</div>
+            <div class="menu-item">Window</div>
+            <div class="menu-item">Help</div>
+        </div>
+        <div class="menu-right">
+            <div class="spotlight-trigger">🔍</div>
+            <div class="control-center">
+                <span class="wifi-icon">📶</span>
+                <span class="battery-icon">🔋</span>
+                <span class="time" id="menu-time"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terminal Window -->
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <div class="terminal-controls">
+                <span class="terminal-control close" style="background: #FF5F57;" title="Close"></span>
+                <span class="terminal-control minimize" style="background: #FEBC2E;" title="Minimize"></span>
+                <span class="terminal-control maximize" style="background: #28C940;" title="Maximize"></span>
+            </div>
+        </div>
+        <div class="terminal-body" id="terminal-output"></div>
+        
+        <!-- Window borders for resizing -->
+        <div class="window-border n"></div>
+        <div class="window-border s"></div>
+        <div class="window-border e"></div>
+        <div class="window-border w"></div>
+        <div class="window-border ne"></div>
+        <div class="window-border nw"></div>
+        <div class="window-border se"></div>
+        <div class="window-border sw"></div>
+    </div>
+
+    <!-- macOS-style Dock with Enhanced Interactivity -->
+    <div class="dock" id="main-dock">
+        <div class="dock-separator"></div>
+        
+        <!-- Finder - About Me -->
+        <div class="dock-item active" id="finder-dock" data-app="finder" data-tooltip="Finder - About Me">
+            <div class="dock-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Finder_Icon_macOS_Big_Sur.png" alt="Finder" class="dock-icon">
+            </div>
+            <div class="dock-indicator"></div>
+        </div>
+
+        <!-- Terminal - Work Experience -->
+        <div class="dock-item" id="terminal-dock" data-app="terminal" data-tooltip="Terminal - Work Experience">
+            <div class="dock-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Terminalicon2.png" alt="Terminal" class="dock-icon">
+            </div>
+            <div class="dock-indicator"></div>
+        </div>
+
+        <!-- VS Code - Projects -->
+        <div class="dock-item" id="vscode-dock" data-app="vscode" data-tooltip="VS Code - Projects">
+            <div class="dock-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" alt="VS Code" class="dock-icon">
+            </div>
+            <div class="dock-indicator"></div>
+        </div>
+
+        <!-- Launchpad - Skills -->
+        <div class="dock-item" id="launchpad-dock" data-app="launchpad" data-tooltip="Launchpad - Skills & Technologies">
+            <div class="dock-icon-wrapper">
+                <svg class="dock-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="launchpad-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="100" height="100" rx="20" fill="url(#launchpad-gradient)"/>
+                    <circle cx="30" cy="30" r="8" fill="white" opacity="0.9"/>
+                    <circle cx="50" cy="30" r="8" fill="white" opacity="0.9"/>
+                    <circle cx="70" cy="30" r="8" fill="white" opacity="0.9"/>
+                    <circle cx="30" cy="50" r="8" fill="white" opacity="0.9"/>
+                    <circle cx="50" cy="50" r="8" fill="white" opacity="0.9"/>
+                    <circle cx="70" cy="50" r="8" fill="white" opacity="0.9"/>
+                    <circle cx="30" cy="70" r="8" fill="white" opacity="0.9"/>
+                    <circle cx="50" cy="70" r="8" fill="white" opacity="0.9"/>
+                    <circle cx="70" cy="70" r="8" fill="white" opacity="0.9"/>
+                </svg>
+            </div>
+            <div class="dock-indicator"></div>
+        </div>
+
+        <!-- Safari - Blog -->
+        <div class="dock-item" id="safari-dock" data-app="safari" data-tooltip="Safari - Blog & Articles">
+            <div class="dock-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Safari_browser_logo.svg" alt="Safari" class="dock-icon">
+            </div>
+            <div class="dock-indicator"></div>
+        </div>
+
+        <!-- Books - Education -->
+        <div class="dock-item" id="books-dock" data-app="books" data-tooltip="Books - Education">
+            <div class="dock-icon-wrapper">
+                <svg class="dock-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="books-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFA500;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FF6347;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="100" height="100" rx="20" fill="url(#books-gradient)"/>
+                    <rect x="20" y="25" width="15" height="50" fill="white" opacity="0.9"/>
+                    <rect x="40" y="25" width="15" height="50" fill="white" opacity="0.8"/>
+                    <rect x="60" y="25" width="15" height="50" fill="white" opacity="0.7"/>
+                </svg>
+            </div>
+            <div class="dock-indicator"></div>
+        </div>
+
+        <!-- GitHub -->
+        <div class="dock-item" id="github-dock" data-app="github" data-tooltip="GitHub Profile">
+            <div class="dock-icon-wrapper">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="dock-icon">
+            </div>
+            <div class="dock-indicator"></div>
+        </div>
+
+        <!-- Mail - Contact -->
+        <div class="dock-item" id="mail-dock" data-app="mail" data-tooltip="Mail - Contact Me">
+            <div class="dock-icon-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg" alt="Mail" class="dock-icon">
+            </div>
+            <div class="dock-indicator"></div>
+        </div>
+
+        <div class="dock-separator"></div>
+
+        <!-- Downloads -->
+        <div class="dock-item" id="downloads-dock" data-app="downloads" data-tooltip="Downloads">
+            <div class="dock-icon-wrapper">
+                <svg class="dock-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="100" rx="20" fill="#4A90E2"/>
+                    <path d="M50 20 L50 55 M35 45 L50 60 L65 45" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <rect x="30" y="70" width="40" height="5" rx="2" fill="white"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Trash -->
+        <div class="dock-item" id="trash-dock" data-app="trash" data-tooltip="Trash">
+            <div class="dock-icon-wrapper">
+                <svg class="dock-icon trash-empty" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="trash-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#B0BEC5;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#78909C;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="100" height="100" rx="20" fill="url(#trash-gradient)"/>
+                    <!-- Trash Can -->
+                    <rect x="30" y="35" width="40" height="45" rx="5" fill="white" opacity="0.9"/>
+                    <rect x="25" y="30" width="50" height="5" rx="2" fill="white" opacity="0.9"/>
+                    <!-- Handle -->
+                    <path d="M40 25 L40 30 M60 25 L60 30" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+                    <!-- Lines -->
+                    <path d="M40 45 L40 65 M50 45 L50 65 M60 45 L60 65" stroke="#78909C" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                </svg>
+                <svg class="dock-icon trash-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                    <defs>
+                        <linearGradient id="trash-full-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFB74D;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FF8A65;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="100" height="100" rx="20" fill="url(#trash-full-gradient)"/>
+                    <!-- Full Trash Can -->
+                    <rect x="30" y="35" width="40" height="45" rx="5" fill="white" opacity="0.9"/>
+                    <rect x="25" y="30" width="50" height="5" rx="2" fill="white" opacity="0.9"/>
+                    <!-- Handle -->
+                    <path d="M40 25 L40 30 M60 25 L60 30" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+                    <!-- Paper pieces -->
+                    <rect x="35" y="40" width="8" height="6" fill="#FF8A65" opacity="0.7"/>
+                    <rect x="55" y="45" width="6" height="8" fill="#FFB74D" opacity="0.7"/>
+                    <rect x="42" y="55" width="12" height="4" fill="#FF8A65" opacity="0.7"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dock Tooltip -->
+    <div class="dock-tooltip" id="dock-tooltip"></div>
+
+    <!-- Spotlight Search -->
+    <div class="spotlight-container" id="spotlight" style="display: none;">
+        <div class="spotlight-window">
+            <input type="text" class="spotlight-input" id="spotlight-input" placeholder="Spotlight Search" autocomplete="off">
+            <div class="spotlight-results" id="spotlight-results"></div>
+        </div>
+    </div>
+
+    <!-- Launchpad Grid -->
+    <div class="launchpad-container" id="launchpad" style="display: none;">
+        <div class="launchpad-header">
+            <input type="text" class="launchpad-search" placeholder="Search" />
+        </div>
+        <div class="launchpad-grid" id="launchpad-grid">
+            <!-- Skills will be dynamically added here -->
+        </div>
+        <div class="launchpad-dots" id="launchpad-dots"></div>
+    </div>
+
+    <!-- Mission Control -->
+    <div class="mission-control" id="mission-control" style="display: none;">
+        <div class="mission-control-header">
+            <div class="desktop-tabs">
+                <div class="desktop-tab active">Desktop 1</div>
+                <div class="desktop-tab">Desktop 2</div>
+                <div class="desktop-tab add-desktop">+</div>
+            </div>
+        </div>
+        <div class="mission-control-grid" id="mission-control-grid">
+            <!-- Windows overview will be shown here -->
+        </div>
+    </div>
+
+    <!-- Notification Center -->
+    <div class="notification-center" id="notification-center">
+        <div class="notification-header">
+            <h3>Notifications</h3>
+            <button class="notification-close">✕</button>
+        </div>
+        <div class="notification-list" id="notification-list">
+            <!-- Notifications will be added here -->
+        </div>
+    </div>
+
+    <!-- Context Menu -->
+    <div class="context-menu" id="context-menu" style="display: none;">
+        <div class="context-menu-item" data-action="open">Open</div>
+        <div class="context-menu-item" data-action="minimize">Minimize</div>
+        <div class="context-menu-item" data-action="maximize">Maximize</div>
+        <div class="context-menu-separator"></div>
+        <div class="context-menu-item" data-action="info">Get Info</div>
+        <div class="context-menu-item" data-action="duplicate">Duplicate</div>
+        <div class="context-menu-separator"></div>
+        <div class="context-menu-item" data-action="force-quit">Force Quit</div>
+    </div>
+
+    <script src="script-enhanced.js"></script>
+</body>
+
+</html>
