@@ -55,6 +55,52 @@ body {
     padding-top: 28px;
 }
 
+/* Desktop Icons */
+.desktop-icons {
+    position: fixed;
+    top: 50px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 100;
+}
+
+.desktop-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+    user-select: none;
+}
+
+.desktop-icon:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.desktop-icon:active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.desktop-icon-image {
+    font-size: 48px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.desktop-icon-label {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    font-weight: 500;
+    max-width: 80px;
+    word-wrap: break-word;
+}
+
 /* Animated Dock */
 .dock {
     position: fixed;
@@ -118,7 +164,55 @@ body {
     transform: scale(1.1);
 }
 
+/* Running indicator for active apps */
+.dock-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+}
+
+.dock-item.minimized-window::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-green);
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
 /* Tooltip */
+.dock-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    opacity: 0;
+    transition: 0.2s all ease-out;
+    pointer-events: none;
+    white-space: nowrap;
+    margin-bottom: 8px;
+    z-index: 10000;
+}
+
+.dock-item:hover .dock-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-12px);
+}
+
 .tooltip {
     position: absolute;
     top: -35px;
@@ -141,8 +235,15 @@ body {
 /* Terminal Window */
 .terminal-window {
     position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 600px;
     min-width: 400px;
     min-height: 300px;
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 120px);
     background: var(--terminal-bg);
     backdrop-filter: blur(10px);
     border: 1px solid var(--terminal-border);
@@ -151,7 +252,7 @@ body {
     transition: all 0.3s ease;
     overflow: hidden;
     color: var(--terminal-text);
-    margin-top: 10px;
+    z-index: 1000;
 }
 
 .terminal-header {
@@ -1611,6 +1712,49 @@ body {
     fill: currentColor;
 }
 
+.apple-menu {
+    position: relative;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.apple-menu:hover {
+    background: var(--menu-hover);
+}
+
+.apple-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--menu-bg);
+    backdrop-filter: blur(20px);
+    border-radius: 6px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    min-width: 220px;
+    display: none;
+    margin-top: 5px;
+    padding: 5px 0;
+    z-index: 10000;
+}
+
+.apple-dropdown.show {
+    display: block;
+    animation: menuFadeIn 0.15s ease;
+}
+
+.apple-dropdown .menu-item {
+    padding: 6px 16px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--menu-text);
+    transition: background 0.1s ease;
+}
+
+.apple-dropdown .menu-item:hover {
+    background: var(--menu-hover);
+}
+
 /* Menu Items */
 .menu-item {
     padding: 0 10px;
@@ -1637,6 +1781,38 @@ body {
 
 .theme-icon {
     font-size: 14px;
+}
+
+/* Status Icons */
+.status-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.status-icon {
+    font-size: 14px;
+    cursor: pointer;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.status-icon:hover {
+    background: var(--menu-hover);
+}
+
+.menu-clock {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.menu-clock:hover {
+    background: var(--menu-hover);
 }
 
 [data-theme="light"] .theme-icon.dark,
