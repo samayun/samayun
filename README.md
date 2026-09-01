@@ -103,8 +103,8 @@
 - [Play with TypeScript in one blog](https://dev.to/samayun/play-with-typescript-in-one-blog-204g)
 - [Let’s burn your code by fire](https://samayun.medium.com/lets-burn-your-code-by-fire-dffb383e0634?source=rss-39ef8cdf061a------2)
 - [Most productive exception handling ever on Node.js](https://samayun.medium.com/most-productive-exception-handling-ever-on-node-js-96828aac83cf?source=rss-39ef8cdf061a------2)
+- [Answer by Samayun Miah Chowdhury for No CORS error when making GET requests, but CORS error when making POST requests](https://stackoverflow.com/questions/70165722/no-cors-error-when-making-get-requests-but-cors-error-when-making-post-requests/70166231#70166231)
 - [Array to Hashmap in Node.js application](https://samayun.medium.com/array-to-hashmap-in-node-js-application-36862cb8746c?source=rss-39ef8cdf061a------2)
-- [Install Avro Keyboard in Linux Mint](https://samayun.medium.com/install-avro-keyboard-in-linux-mint-c88be1239d85?source=rss-39ef8cdf061a------2)
 <!-- BLOG-POST-LIST:END -->
 
 ❤️ [...more blog articles](https://samayun.medium.com)  
